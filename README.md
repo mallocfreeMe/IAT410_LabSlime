@@ -1,2 +1,2 @@
 # IAT410_LabSlime
-2D action platformer game
+2D action platform game
