@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public ParticleSystem dust;
+    
     public float speed = 75;
     public float jumpForce;
     private float moveInput;
@@ -56,11 +58,13 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.W) && extraJumps > 0)
         {
+            dust.Play();
             rb.velocity = Vector2.up * jumpForce;
             extraJumps--;
         }
         else if (Input.GetKeyDown(KeyCode.W) && extraJumps == 0 && isGrounded)
         {
+            dust.Play();
             rb.velocity = Vector2.up * jumpForce;
         }
 
@@ -89,5 +93,10 @@ public class PlayerController : MonoBehaviour
         Vector3 scaler = transform.localScale;
         scaler.x *= -1;
         transform.localScale = scaler;
+    }
+
+    void CreatDust()
+    {
+        dust.Play();
     }
 }
