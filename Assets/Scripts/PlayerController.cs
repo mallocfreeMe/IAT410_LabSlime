@@ -6,8 +6,14 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public ParticleSystem dust;
+    public int maxHealth = 100;
+    public int currentHealth;
+    public EnergyBar EnergyBar;
     
+    public ParticleSystem dust;
+    private string spritNames = "RedTest";
+    public Sprite[] Sprites;
+
     public float speed = 75;
     public float jumpForce;
     private float moveInput;
@@ -25,12 +31,14 @@ public class PlayerController : MonoBehaviour
     public int extraJumpValue;
 
     public Transform enemyDetection;
-    public List<GameObject> enemies = new List<GameObject>();
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        Sprites = Resources.LoadAll<Sprite>(spritNames);
+        currentHealth = maxHealth;
+        EnergyBar.SetMaxHealth(maxHealth);
     }
 
     private void FixedUpdate()
@@ -71,20 +79,27 @@ public class PlayerController : MonoBehaviour
         // absorb enemies
         if (Input.GetKey(KeyCode.S))
         {
-            RaycastHit2D hasEnemyRight = Physics2D.Raycast(enemyDetection.position, Vector2.right, 2f);
-
-            if (hasEnemyRight && enemies != null)
+            RaycastHit2D hasEnemyRight = Physics2D.Raycast(enemyDetection.position, Vector2.right, 4f);
+            if (hasEnemyRight.collider != null && hasEnemyRight.collider.gameObject.name != "Ground")
             {
-                foreach (GameObject enemy in enemies)
-                {
-                    float distance = Vector2.Distance(transform.position, enemy.transform.position);
-                    if (distance <= 2f)
-                    {
-                        Destroy(enemy);
-                    }
-                }
+                Vector2 direction = hasEnemyRight.collider.transform.position - transform.position;
+                hasEnemyRight.collider.GetComponent<Rigidbody2D>().AddForce(5.0f * direction * -1);
+                // Destroy(hasEnemyRight.collider.gameObject);
+                // GetComponent<SpriteRenderer>().sprite = Sprites[0];
             }
         }
+        
+        // health bar
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            TakeDamage(20);
+        }
+    }
+
+    void TakeDamage(int damage)
+    {
+        currentHealth -= damage;
+        EnergyBar.SetHealth(currentHealth);
     }
 
     void Flip()
@@ -95,8 +110,13 @@ public class PlayerController : MonoBehaviour
         transform.localScale = scaler;
     }
 
-    void CreatDust()
+    private void OnCollisionEnter2D(Collision2D other)
     {
-        dust.Play();
+        if (other.gameObject.name == "Color Cube")
+        {
+            Destroy(other.gameObject);
+            GetComponent<Weapon>().enabled = true;
+            GetComponent<SpriteRenderer>().sprite = Sprites[0];
+        }
     }
 }
