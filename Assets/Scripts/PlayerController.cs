@@ -84,8 +84,8 @@ public class PlayerController : MonoBehaviour
             {
                 Vector2 direction = hasEnemyRight.collider.transform.position - transform.position;
                 hasEnemyRight.collider.GetComponent<Rigidbody2D>().AddForce(5.0f * direction * -1);
-                // Destroy(hasEnemyRight.collider.gameObject);
-                // GetComponent<SpriteRenderer>().sprite = Sprites[0];
+                //Destroy(hasEnemyRight.collider.gameObject, 2f);
+                //GetComponent<SpriteRenderer>().sprite = Sprites[0];
             }
         }
         
