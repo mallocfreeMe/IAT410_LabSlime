@@ -1,5 +1,5 @@
 # IAT410_LabSlime
-2D action platform game
+This project was made by me, Eric, Norris and Nat. 
 
 My game development blog: https://daijianghui110.wixsite.com/website<br>
 Team's Blog: https://tengpinericpan.wixsite.com/iat415
