@@ -1,23 +1,23 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class Bullet : MonoBehaviour
+namespace Player
 {
-    public float speed = 10f;
-    public Rigidbody2D rb;
-    
-    // Start is called before the first frame update
-    void Start()
+    public class Bullet : MonoBehaviour
     {
-        if (Input.GetKeyDown(KeyCode.A))
+        public float speed = 10f;
+        public Rigidbody2D rb;
+    
+        // Start is called before the first frame update
+        void Start()
         {
-            rb.velocity = transform.right * speed * -1;
-        }
-        else
-        {
-            rb.velocity = transform.right * speed;
+            if (Input.GetKeyDown(KeyCode.A))
+            {
+                rb.velocity = transform.right * speed * -1;
+            }
+            else
+            {
+                rb.velocity = transform.right * speed;
+            }
         }
     }
 }

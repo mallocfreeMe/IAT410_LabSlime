@@ -1,43 +1,44 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class HealthHeart : MonoBehaviour
+namespace Player
 {
-    public int health;
-    public int numOfHearts;
-
-    public Image[] hearts;
-    public Sprite fullHeart;
-    public Sprite emptyHeart;
-
-    // Update is called once per frame
-    void Update()
+    public class HealthHeart : MonoBehaviour
     {
-        if (health > numOfHearts )
-        {
-            health = numOfHearts;
-        }
-        
-        for (int i = 0; i < hearts.Length; i++)
-        {
-            if (i < health)
-            {
-                hearts[i].sprite = fullHeart;
-            }
-            else
-            {
-                hearts[i].sprite = emptyHeart;
-            }
+        public int health;
+        public int numOfHearts;
 
-            if (i < numOfHearts)
+        public Image[] hearts;
+        public Sprite fullHeart;
+        public Sprite emptyHeart;
+
+        // Update is called once per frame
+        void Update()
+        {
+            if (health > numOfHearts )
             {
-                hearts[i].enabled = true;
+                health = numOfHearts;
             }
-            else
+        
+            for (int i = 0; i < hearts.Length; i++)
             {
-                hearts[i].enabled = false;
+                if (i < health)
+                {
+                    hearts[i].sprite = fullHeart;
+                }
+                else
+                {
+                    hearts[i].sprite = emptyHeart;
+                }
+
+                if (i < numOfHearts)
+                {
+                    hearts[i].enabled = true;
+                }
+                else
+                {
+                    hearts[i].enabled = false;
+                }
             }
         }
     }

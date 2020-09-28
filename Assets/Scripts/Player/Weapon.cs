@@ -1,23 +1,24 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class Weapon : MonoBehaviour
+namespace Player
 {
-    public Transform firePoint;
-    public GameObject bulletPrefab;
+    public class Weapon : MonoBehaviour
+    {
+        public Transform firePoint;
+        public GameObject bulletPrefab;
     
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
+        // Update is called once per frame
+        void Update()
         {
-            Shoot();
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                Shoot();
+            }
         }
-    }
 
-    private void Shoot()
-    {
-        Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        private void Shoot()
+        {
+            Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        }
     }
 }

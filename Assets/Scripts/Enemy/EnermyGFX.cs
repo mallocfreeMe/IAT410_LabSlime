@@ -1,22 +1,23 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using Pathfinding;
+﻿using Pathfinding;
 using UnityEngine;
 
-public class EnermyGFX : MonoBehaviour
+namespace Enemy
 {
-    public AIPath aiPath;
-
-    // Update is called once per frame
-    void Update()
+    public class EnermyGFX : MonoBehaviour
     {
-        if (aiPath.desiredVelocity.x >= 0.01f)
+        public AIPath aiPath;
+
+        // Update is called once per frame
+        void Update()
         {
-            transform.localScale = new Vector3(1f, 1f, 1f);
-        }
-        else if (aiPath.desiredVelocity.x <= -0.01f)
-        {
-            transform.localScale = new Vector3(-1f, 1f, 1f);
+            if (aiPath.desiredVelocity.x >= 0.01f)
+            {
+                transform.localScale = new Vector3(1f, 1f, 1f);
+            }
+            else if (aiPath.desiredVelocity.x <= -0.01f)
+            {
+                transform.localScale = new Vector3(-1f, 1f, 1f);
+            }
         }
     }
 }
