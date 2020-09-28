@@ -32,7 +32,7 @@ namespace Player
 
         public Transform enemyDetection;
 
-        public Camera camera = new Camera();
+        public new Camera camera;
         private PostProcessVolume postProcessVolume;
 
         // Start is called before the first frame update
