@@ -111,9 +111,7 @@ namespace Player
         void Flip()
         {
             facingRight = !facingRight;
-            Vector3 scaler = transform.localScale;
-            scaler.x *= -1;
-            transform.localScale = scaler;
+            transform.Rotate(0f, 180f, 0);
         }
 
         private void OnCollisionEnter2D(Collision2D other)

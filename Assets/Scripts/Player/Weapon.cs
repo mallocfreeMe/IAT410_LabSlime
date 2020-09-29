@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using Enemy;
+using Unity.Mathematics;
+using UnityEngine;
 
 namespace Player
 {
@@ -6,7 +8,7 @@ namespace Player
     {
         public Transform firePoint;
         public GameObject bulletPrefab;
-    
+
         // Update is called once per frame
         void Update()
         {

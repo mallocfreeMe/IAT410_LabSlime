@@ -8,12 +8,11 @@ namespace Enemy
 {
     public class ParticleEffect : MonoBehaviour
     {
-        public int health;
         public GameObject effect;
-        
-        private void OnCollisionEnter2D(Collision2D other)
+
+        private void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.collider.gameObject.GetComponent<PlayerController>())
+            if (other.gameObject.GetComponent<Bullet>())
             {
                 Instantiate(effect, transform.position, quaternion.identity);
                 Destroy(gameObject);
