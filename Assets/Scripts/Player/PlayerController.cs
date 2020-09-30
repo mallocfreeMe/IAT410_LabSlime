@@ -1,6 +1,7 @@
 ﻿using System;
 using Enemy;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Rendering.PostProcessing;
 
 namespace Player
@@ -44,6 +45,8 @@ namespace Player
         public float wallCheckDistance;
         public float wallSlideSpeed;
 
+        public Animator animator;
+
         // Start is called before the first frame update
         void Start()
         {
@@ -85,6 +88,14 @@ namespace Player
 
         private void Update()
         {
+            if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
+            {
+                animator.SetBool("IsRunning", true);
+            }
+            else
+            {
+                animator.SetBool("IsRunning", false);
+            }
             if (isGrounded && isWallSliding == false)
             {
                 extraJumps = extraJumpValue;
@@ -92,12 +103,14 @@ namespace Player
 
             if (Input.GetKeyDown(KeyCode.W) && extraJumps > 0 && isWallSliding == false)
             {
+                animator.SetTrigger("Jump");
                 dust.Play();
                 rb.velocity = Vector2.up * jumpForce;
                 extraJumps--;
             }
             else if (Input.GetKeyDown(KeyCode.W) && extraJumps == 0 && isGrounded && isWallSliding == false)
             {
+                animator.SetTrigger("Jump");
                 dust.Play();
                 rb.velocity = Vector2.up * jumpForce;
             }
