@@ -14,7 +14,10 @@ namespace Enemy
         {
             if (other.gameObject.GetComponent<Bullet>())
             {
-                Instantiate(effect, transform.position, quaternion.identity);
+                if (this.name != "Box")
+                {
+                    Instantiate(effect, transform.position, quaternion.identity);
+                }
                 Destroy(gameObject);
             }
         }

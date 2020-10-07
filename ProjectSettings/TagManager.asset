@@ -17,10 +17,10 @@ TagManager:
   - Ground
   - PostProcessing
   - Wall
-  - 
-  - 
-  - 
-  - 
+  - Player
+  - Enemy
+  - Magma
+  - Trap
   - 
   - 
   - 

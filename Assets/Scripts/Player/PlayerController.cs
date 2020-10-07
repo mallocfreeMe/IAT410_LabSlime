@@ -1,16 +1,23 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using Enemy;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Rendering.PostProcessing;
+using UnityEngine.SceneManagement;
+using UnityEngine.Tilemaps;
 
 namespace Player
 {
     public class PlayerController : MonoBehaviour
     {
+        public Collider2D[] myColls;
         public int maxHealth = 100;
         public int currentHealth;
         public EnergyBar EnergyBar;
+        public List<GameObject> HealthList;
 
         public ParticleSystem dust;
         private string spritNames = "RedTest";
@@ -46,6 +53,13 @@ namespace Player
         public float wallSlideSpeed;
 
         public Animator animator;
+
+        public float invincibleTimeAfterHurt = 2.0f;
+
+        private bool isConsuming;
+
+        public Tilemap ground;
+        public Tilemap box;
 
         // Start is called before the first frame update
         void Start()
@@ -88,6 +102,7 @@ namespace Player
 
         private void Update()
         {
+            //rb.AddForce(Vector2.right * 100);
             if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
             {
                 animator.SetBool("IsRunning", true);
@@ -96,6 +111,7 @@ namespace Player
             {
                 animator.SetBool("IsRunning", false);
             }
+
             if (isGrounded && isWallSliding == false)
             {
                 extraJumps = extraJumpValue;
@@ -118,23 +134,43 @@ namespace Player
             // absorb enemies
             if (Input.GetKey(KeyCode.S))
             {
-                RaycastHit2D hasEnemyRight = Physics2D.Raycast(enemyDetection.position, Vector2.right, 4f);
+                RaycastHit2D hasEnemyRight = Physics2D.Raycast(enemyDetection.position, Vector2.right, 640f);
                 if (hasEnemyRight.collider != null && hasEnemyRight.collider.gameObject.GetComponent<Patrol>())
                 {
+                    hasEnemyRight.collider.gameObject.GetComponent<Patrol>().speed = 0;
+                    isConsuming = true;
                     Vector2 direction = hasEnemyRight.collider.transform.position - transform.position;
-                    hasEnemyRight.collider.GetComponent<Rigidbody2D>().AddForce(5.0f * direction * -1);
+                    rb.AddForce(5.0f * direction * 1);
                     Destroy(hasEnemyRight.collider.gameObject, 2f);
-                    GetComponent<SpriteRenderer>().sprite = Sprites[0];
+                    GetComponent<SpriteRenderer>().color = Color.red;
+                    animator.SetBool("IsEating", true);
+                    //animator.SetBool("IsRed", true);
+                }
+                else
+                {
+                    isConsuming = false;
+                    animator.SetBool("IsEating", false);
                 }
             }
 
-            // health bar
-            if (Input.GetKeyDown(KeyCode.L))
+            if (isConsuming)
             {
-                TakeDamage(20);
+                rb.AddForce(Vector2.right * 100);
             }
 
             CheckIfWallSliding();
+
+            if (HealthList.Count == 0)
+            {
+                SceneManager.LoadScene("Level1");
+                int enemyLayer = LayerMask.NameToLayer("Enemy");
+                int magmaLayer = LayerMask.NameToLayer("Magma");
+                int trapLayer = LayerMask.NameToLayer("Trap");
+                int playerLayer = LayerMask.NameToLayer("Player");
+                Physics2D.IgnoreLayerCollision(enemyLayer, playerLayer, false);
+                Physics2D.IgnoreLayerCollision(magmaLayer, playerLayer, false);
+                Physics2D.IgnoreLayerCollision(trapLayer, playerLayer, false);
+            }
         }
 
         private void CheckIfWallSliding()
@@ -170,9 +206,61 @@ namespace Player
             {
                 Destroy(other.gameObject);
                 GetComponent<Weapon>().enabled = true;
-                GetComponent<SpriteRenderer>().sprite = Sprites[0];
-                postProcessVolume.enabled = false;
+                ground.color = new Color(255, 255, 255);
+                box.color = new Color(255, 255, 255);
             }
+
+            if (other.gameObject.GetComponent<Patrol>() && !isConsuming)
+            {
+                StartCoroutine(HurtBlinker());
+            }
+
+            if ((other.gameObject.name == "Magma" || other.gameObject.name == "Trap"))
+            {
+                StartCoroutine(HurtBlinkerForEnvironment(other.gameObject.name));
+            }
+        }
+
+        IEnumerator HurtBlinker()
+        {
+            int enemyLayer = LayerMask.NameToLayer("Enemy");
+            int playerLayer = LayerMask.NameToLayer("Player");
+            Physics2D.IgnoreLayerCollision(enemyLayer, playerLayer, true);
+            foreach (Collider2D collider2D in myColls)
+            {
+                collider2D.enabled = false;
+                collider2D.enabled = true;
+            }
+            animator.SetLayerWeight(1, 1);
+            if (HealthList.Count > 0)
+            {
+                HealthList[HealthList.Count - 1].SetActive(false);
+                HealthList.Remove(HealthList[HealthList.Count - 1]);
+            }
+            yield return new WaitForSeconds(invincibleTimeAfterHurt);
+            Physics2D.IgnoreLayerCollision(enemyLayer, playerLayer, false);
+            animator.SetLayerWeight(1, 0);
+        }
+        
+        IEnumerator HurtBlinkerForEnvironment(string layerName)
+        {
+            int enemyLayer = LayerMask.NameToLayer(layerName);
+            int playerLayer = LayerMask.NameToLayer("Player");
+            Physics2D.IgnoreLayerCollision(enemyLayer, playerLayer);
+            foreach (Collider2D collider2D in myColls)
+            {
+                collider2D.enabled = false;
+                collider2D.enabled = true;
+            }
+            animator.SetLayerWeight(1, 1);
+            if (HealthList.Count > 0)
+            {
+                HealthList[HealthList.Count - 1].SetActive(false);
+                HealthList.Remove(HealthList[HealthList.Count - 1]);
+            }
+            yield return new WaitForSeconds(invincibleTimeAfterHurt);
+            Physics2D.IgnoreLayerCollision(enemyLayer, playerLayer, false);
+            animator.SetLayerWeight(1, 0);
         }
 
         private void OnDrawGizmos()
