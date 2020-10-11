@@ -202,7 +202,7 @@ namespace Player
 
         private void OnCollisionEnter2D(Collision2D other)
         {
-            if (other.gameObject.name == "Color Cube")
+            if (other.gameObject.name == "PowerStone")
             {
                 Destroy(other.gameObject);
                 GetComponent<Weapon>().enabled = true;
