@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ground
   - PowerStone
+  - ShowOnPause
   layers:
   - Default
   - TransparentFX
