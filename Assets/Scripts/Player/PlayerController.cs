@@ -165,7 +165,7 @@ namespace Player
 
             if (HealthList.Count == 0)
             {
-                SceneManager.LoadScene("Level1");
+                SceneManager.LoadScene(3);
                 int enemyLayer = LayerMask.NameToLayer("Enemy");
                 int magmaLayer = LayerMask.NameToLayer("Magma");
                 int trapLayer = LayerMask.NameToLayer("Trap");
