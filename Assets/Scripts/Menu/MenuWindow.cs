@@ -8,12 +8,12 @@ namespace Menu
     
         public void NewGame() {
             Debug.Log("The play button pressed!!");
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(3);
         }
 
         public void Options() {
             Debug.Log("The options button pressed!!");
-            SceneManager.LoadScene(2);
+            SceneManager.LoadScene(1);
         }
 
         public void Quit() {

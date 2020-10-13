@@ -7,13 +7,11 @@ namespace Menu
     {
 
         public void PlayAgain() {
-            Debug.Log("The play again button pressed!!");
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(3);
         }
 
         public void MainMenu() {
-            Debug.Log("The main menu button pressed!!");
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(0);
         }
 
     }

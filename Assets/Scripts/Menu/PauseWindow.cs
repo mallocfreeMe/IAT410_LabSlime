@@ -11,7 +11,7 @@ namespace Menu
 
         public void MainMenu() {
             Debug.Log("The main menu button pressed!!");
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(0);
         }
     }
 }

@@ -7,7 +7,7 @@ namespace Platform
      {
           private void OnCollisionEnter2D(Collision2D other)
           {
-               SceneManager.LoadScene(5);
+               SceneManager.LoadScene(4);
           }
      }
 }

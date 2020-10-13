@@ -16,7 +16,7 @@ namespace Menu
 
         public void Back() {
             Debug.Log("The Back button pressed!!");
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(0);
         }
     }
 }

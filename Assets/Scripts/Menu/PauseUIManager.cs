@@ -39,7 +39,7 @@ namespace Menu
 		//Reloads to the Main Menu
 		public void loadMainMenu()
 		{
-			SceneManager.LoadScene(1);
+			SceneManager.LoadScene(0);
 		}
 
 		//controls the pausing of the scene
