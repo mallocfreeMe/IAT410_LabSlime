@@ -67,8 +67,8 @@ public class PauseUIManager : MonoBehaviour
 	}
 
     //loads inputted level
-	public void LoadLevel(string level){
-		SceneManager.LoadScene(level);
-	}
+	// public void LoadLevel(string level){
+	// 	SceneManager.LoadScene(level);
+	// }
 
 }
