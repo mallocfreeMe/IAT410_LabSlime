@@ -5,6 +5,7 @@ using System.Runtime.CompilerServices;
 using Enemy;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Experimental.Rendering.Universal;
 using UnityEngine.Rendering.PostProcessing;
 using UnityEngine.SceneManagement;
 using UnityEngine.Tilemaps;
@@ -60,6 +61,8 @@ namespace Player
 
         public Tilemap ground;
         public Tilemap box;
+
+        public Light2D globalLight;
 
         // Start is called before the first frame update
         void Start()
@@ -206,8 +209,8 @@ namespace Player
             {
                 Destroy(other.gameObject);
                 GetComponent<Weapon>().enabled = true;
-                ground.color = new Color(255, 255, 255);
-                box.color = new Color(255, 255, 255);
+                extraJumpValue = 9;
+                globalLight.color = new Color(227f/255f, 83f/255f, 83f/255f);
             }
 
             if (other.gameObject.GetComponent<Patrol>() && !isConsuming)
