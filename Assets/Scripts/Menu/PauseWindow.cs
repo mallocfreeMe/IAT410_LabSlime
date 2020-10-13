@@ -1,17 +1,17 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PauseWindow : MonoBehaviour
+namespace Menu
 {
-    public void Resume() {
-        Debug.Log("The resume button pressed!!");
-    }
+    public class PauseWindow : MonoBehaviour
+    {
+        public void Resume() {
+            Debug.Log("The resume button pressed!!");
+        }
 
-    public void MainMenu() {
-        Debug.Log("The main menu button pressed!!");
-        SceneManager.LoadScene(1);
+        public void MainMenu() {
+            Debug.Log("The main menu button pressed!!");
+            SceneManager.LoadScene(1);
+        }
     }
 }

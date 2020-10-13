@@ -202,7 +202,7 @@ namespace Player
 
         private void OnCollisionEnter2D(Collision2D other)
         {
-            if (other.gameObject.name == "PowerStone")
+            if (other.gameObject.CompareTag("PowerStone"))
             {
                 Destroy(other.gameObject);
                 GetComponent<Weapon>().enabled = true;
