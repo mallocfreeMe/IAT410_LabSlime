@@ -7,11 +7,19 @@ namespace Menu
 	{
 
 		GameObject[] pauseObjects;
+		public GameObject objectOne;
+		public GameObject objectTwo;
+		public GameObject objectThree;
+		public GameObject objectFour;
 
 		// Start is called before the first frame update
 		void Start()
 		{
 			Time.timeScale = 1;
+			objectOne.SetActive(true);
+			objectTwo.SetActive(true);
+			objectThree.SetActive(true);
+			objectFour.SetActive(true);
 			pauseObjects = GameObject.FindGameObjectsWithTag("ShowOnPause");
 			hidePaused();
 		}

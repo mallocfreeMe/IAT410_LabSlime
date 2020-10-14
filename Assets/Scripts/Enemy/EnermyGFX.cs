@@ -21,7 +21,7 @@ namespace Enemy
                 transform.localScale = new Vector3(-1f, 1f, 1f);
             }
 
-            if (dialogueMangager.GetComponent<Dialogue>().index == 1 && !button.activeSelf)
+            if (dialogueMangager.GetComponent<Dialogue.Dialogue>().index == 1 && !button.activeSelf)
             {
                 aiPath.enabled = true;
             }
