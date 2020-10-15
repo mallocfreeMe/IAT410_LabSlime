@@ -70,7 +70,7 @@ namespace Player
             rb = GetComponent<Rigidbody2D>();
             Sprites = Resources.LoadAll<Sprite>(spritNames);
             currentHealth = maxHealth;
-            EnergyBar.SetMaxHealth(maxHealth);
+            // EnergyBar.SetMaxHealth(maxHealth);
             postProcessVolume = camera.GetComponent<PostProcessVolume>();
         }
 
