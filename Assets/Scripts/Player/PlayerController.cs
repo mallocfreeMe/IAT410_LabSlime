@@ -18,7 +18,7 @@ namespace Player
         public int maxHealth = 100;
         public int currentHealth;
         public EnergyBar EnergyBar;
-        public List<GameObject> HealthList;
+        // public List<GameObject> HealthList;
 
         public ParticleSystem dust;
         private string spritNames = "RedTest";
@@ -57,7 +57,7 @@ namespace Player
 
         public float invincibleTimeAfterHurt = 2.0f;
 
-        private bool isConsuming;
+        // private bool isConsuming;
 
         public Tilemap ground;
         public Tilemap box;
@@ -135,7 +135,7 @@ namespace Player
             }
 
             // absorb enemies
-            if (Input.GetKey(KeyCode.S))
+            /*if (Input.GetKey(KeyCode.S))
             {
                 RaycastHit2D hasEnemyRight = Physics2D.Raycast(enemyDetection.position, Vector2.right, 640f);
                 if (hasEnemyRight.collider != null && hasEnemyRight.collider.gameObject.GetComponent<Patrol>())
@@ -159,11 +159,11 @@ namespace Player
             if (isConsuming)
             {
                 rb.AddForce(Vector2.right * 100);
-            }
+            }*/
 
             CheckIfWallSliding();
 
-            if (HealthList.Count == 0)
+            /*if (HealthList.Count == 0)
             {
                 SceneManager.LoadScene(2);
                 int enemyLayer = LayerMask.NameToLayer("Enemy");
@@ -173,7 +173,7 @@ namespace Player
                 Physics2D.IgnoreLayerCollision(enemyLayer, playerLayer, false);
                 Physics2D.IgnoreLayerCollision(magmaLayer, playerLayer, false);
                 Physics2D.IgnoreLayerCollision(trapLayer, playerLayer, false);
-            }
+            }*/
         }
 
         private void CheckIfWallSliding()
@@ -213,7 +213,7 @@ namespace Player
                 globalLight.color = new Color(227f/255f, 83f/255f, 83f/255f);
             }
 
-            if (other.gameObject.GetComponent<Patrol>() && !isConsuming)
+            if (other.gameObject.GetComponent<Patrol>())
             {
                 StartCoroutine(HurtBlinker());
             }
@@ -235,11 +235,11 @@ namespace Player
                 collider2D.enabled = true;
             }
             animator.SetLayerWeight(1, 1);
-            if (HealthList.Count > 0)
+            /*if (HealthList.Count > 0)
             {
                 HealthList[HealthList.Count - 1].SetActive(false);
                 HealthList.Remove(HealthList[HealthList.Count - 1]);
-            }
+            }*/
             yield return new WaitForSeconds(invincibleTimeAfterHurt);
             Physics2D.IgnoreLayerCollision(enemyLayer, playerLayer, false);
             animator.SetLayerWeight(1, 0);
@@ -256,11 +256,11 @@ namespace Player
                 collider2D.enabled = true;
             }
             animator.SetLayerWeight(1, 1);
-            if (HealthList.Count > 0)
+            /* if (HealthList.Count > 0)
             {
                 HealthList[HealthList.Count - 1].SetActive(false);
                 HealthList.Remove(HealthList[HealthList.Count - 1]);
-            }
+            } */
             yield return new WaitForSeconds(invincibleTimeAfterHurt);
             Physics2D.IgnoreLayerCollision(enemyLayer, playerLayer, false);
             animator.SetLayerWeight(1, 0);

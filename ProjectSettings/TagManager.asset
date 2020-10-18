@@ -8,6 +8,7 @@ TagManager:
   - PowerStone
   - ShowOnPause
   - Heart
+  - Enemy
   layers:
   - Default
   - TransparentFX
