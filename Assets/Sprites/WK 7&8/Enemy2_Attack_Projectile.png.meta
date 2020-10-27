@@ -1,0 +1,433 @@
+fileFormatVersion: 2
+guid: 37b14e5c84ad1ab42998a1909b06441e
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5992414386644090602
+    second: Enemy2_Attack_Projectile_0
+  - first:
+      213: 5698679183713869992
+    second: Enemy2_Attack_Projectile_1
+  - first:
+      213: -8613113965194453177
+    second: Enemy2_Attack_Projectile_2
+  - first:
+      213: -2549443889884627449
+    second: Enemy2_Attack_Projectile_3
+  - first:
+      213: -8917361630886768998
+    second: Enemy2_Attack_Projectile_4
+  - first:
+      213: -4738083704757403356
+    second: Enemy2_Attack_Projectile_5
+  - first:
+      213: -8568140834669410375
+    second: Enemy2_Attack_Projectile_6
+  - first:
+      213: -6359098493130794703
+    second: Enemy2_Attack_Projectile_7
+  - first:
+      213: -9172355382073785926
+    second: Enemy2_Attack_Projectile_8
+  - first:
+      213: -4351499179530578087
+    second: Enemy2_Attack_Projectile_9
+  - first:
+      213: -5587741648853832438
+    second: Enemy2_Attack_Projectile_10
+  - first:
+      213: -5799821208510724013
+    second: Enemy2_Attack_Projectile_11
+  - first:
+      213: -7280909561384558056
+    second: Enemy2_Attack_Projectile_12
+  - first:
+      213: 3034875851892218189
+    second: Enemy2_Attack_Projectile_13
+  - first:
+      213: -5086932830863913189
+    second: Enemy2_Attack_Projectile_14
+  - first:
+      213: -2654060231283965364
+    second: Enemy2_Attack_Projectile_15
+  - first:
+      213: 8893682400932311460
+    second: Enemy2_Attack_Projectile_16
+  - first:
+      213: -3111537387918604016
+    second: Enemy2_Attack_Projectile_17
+  - first:
+      213: 4867389161915708800
+    second: Enemy2_Attack_Projectile_18
+  - first:
+      213: -4460959830723467842
+    second: Enemy2_Attack_Projectile_19
+  - first:
+      213: -4509711945242937101
+    second: Enemy2_Attack_Projectile_20
+  - first:
+      213: 975164323116247200
+    second: Enemy2_Attack_Projectile_21
+  - first:
+      213: -4708466069688739025
+    second: Enemy2_Attack_Projectile_22
+  - first:
+      213: -2744362423737891868
+    second: Enemy2_Attack_Projectile_23
+  - first:
+      213: -474788701984966214
+    second: Enemy2_Attack_Projectile_24
+  - first:
+      213: 6075354288270019998
+    second: Enemy2_Attack_Projectile_25
+  - first:
+      213: 1578564954131144461
+    second: Enemy2_Attack_Projectile_26
+  - first:
+      213: -5696294188827727204
+    second: Enemy2_Attack_Projectile_27
+  - first:
+      213: 8653799606455285954
+    second: Enemy2_Attack_Projectile_28
+  - first:
+      213: 2985228779639189634
+    second: Enemy2_Attack_Projectile_29
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Enemy2_Attack_Projectile_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 231
+        width: 174
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61183215ddaa6dca0800000000000000
+      internalID: -5992414386644090602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy2_Attack_Projectile_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 202
+        width: 174
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a0ad225686c51f40800000000000000
+      internalID: 5698679183713869992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy2_Attack_Projectile_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 176
+        width: 174
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74fd0ae9b72187880800000000000000
+      internalID: -8613113965194453177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy2_Attack_Projectile_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 149
+        width: 174
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70ef2a82a4e8e9cd0800000000000000
+      internalID: -2549443889884627449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy2_Attack_Projectile_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 122
+        width: 174
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9ecb49c7da2f3480800000000000000
+      internalID: -8917361630886768998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy2_Attack_Projectile_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 95
+        width: 174
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4214ed559f1fe3eb0800000000000000
+      internalID: -4738083704757403356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy2_Attack_Projectile_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 66
+        width: 174
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b7c20c8e49d71980800000000000000
+      internalID: -8568140834669410375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy2_Attack_Projectile_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 39
+        width: 174
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1399739cc91ffb7a0800000000000000
+      internalID: -6359098493130794703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy2_Attack_Projectile_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 16
+        width: 174
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab189d1906f35b080800000000000000
+      internalID: -9172355382073785926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
