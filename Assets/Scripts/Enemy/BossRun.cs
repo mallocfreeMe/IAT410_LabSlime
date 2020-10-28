@@ -1,12 +1,13 @@
-﻿using Unity.Mathematics;
+﻿using System;
+using Unity.Mathematics;
 using UnityEngine;
 
 namespace Enemy
 {
     public class BossRun : StateMachineBehaviour
     {
-        private float speed = 8.5f;
-        private float attackRange = 2.5f;
+        public float speed = 8.5f;
+        public float attackRange = 2.5f;
         private Transform player;
         private Rigidbody2D rb;
         private Boss boss;
@@ -26,12 +27,15 @@ namespace Enemy
             boss.LookAtPlayer();
             Vector2 target = new Vector2(player.position.x, rb.position.y);
             Vector2 newPos = Vector2.MoveTowards(rb.position, target, speed * Time.deltaTime);
-            rb.MovePosition(newPos);
 
             if (Vector2.Distance(player.position, rb.position) < attackRange)
             {
                 animator.SetTrigger("Attack");
                 //Instantiate(effect, rb.position, quaternion.identity);
+            }
+            else
+            {
+                rb.MovePosition(newPos);
             }
         }
 

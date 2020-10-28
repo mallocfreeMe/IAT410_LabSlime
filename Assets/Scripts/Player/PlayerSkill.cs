@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 
 namespace Player
@@ -17,13 +18,11 @@ namespace Player
         private int detectDistance = 5;
         private int playerLayer = 11;
         // private int enemyLayer = 12;
-        public SpriteRenderer renderer;
 
         private void Start()
         {
             rb = GetComponent<Rigidbody2D>();
             animator = GetComponent<Animator>();
-            renderer = GetComponent<SpriteRenderer>();
         }
 
         private void FixedUpdate()
@@ -66,7 +65,6 @@ namespace Player
             animator.SetTrigger("Eat");
             yield return new WaitForSeconds(animationLastSeconds);
             Destroy(enemyBeEaten);
-            renderer.color = new Color(62f/255f, 134f/255f, 255f/255f);
         }
     }
 }

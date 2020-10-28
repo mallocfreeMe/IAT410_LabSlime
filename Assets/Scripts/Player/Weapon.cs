@@ -8,6 +8,7 @@ namespace Player
     {
         public Transform firePoint;
         public GameObject bulletPrefab;
+        private GameObject instantiateBullet;
 
         // Update is called once per frame
         void Update()
@@ -20,7 +21,8 @@ namespace Player
 
         private void Shoot()
         {
-            Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+            instantiateBullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+            Destroy(instantiateBullet, 1);
         }
     }
 }

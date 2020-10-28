@@ -24,10 +24,13 @@ namespace Player
         private string spritNames = "RedTest";
         public Sprite[] Sprites;
 
-        public float speed = 75;
+        public float speed = 7;
         public float jumpForce;
         private float moveInput;
         private float moveUp;
+        private float jumpTimeCounter;
+        public float jumpTime;
+        private bool isJumping;
 
         private Rigidbody2D rb;
 
@@ -81,7 +84,7 @@ namespace Player
             isTouchingWall = Physics2D.Raycast(wallCheck.position, transform.right, wallCheckDistance, whatIsWall);
 
             moveInput = Input.GetAxisRaw("Horizontal");
-            moveUp = Input.GetAxis("Vertical");
+            // moveUp = Input.GetAxis("Vertical");
 
             rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
 
@@ -115,7 +118,33 @@ namespace Player
                 animator.SetBool("IsRunning", false);
             }
 
-            if (isGrounded && isWallSliding == false)
+            if (isGrounded && Input.GetKeyDown(KeyCode.W))
+            {
+                dust.Play();
+                isJumping = true;
+                jumpTimeCounter = jumpTime;
+                rb.velocity = Vector2.up * jumpForce;
+            }
+
+            if (Input.GetKey(KeyCode.W) && isJumping)
+            {
+                if (jumpTimeCounter > 0)
+                {
+                    rb.velocity = Vector2.up * jumpForce;
+                    jumpTimeCounter -= Time.deltaTime;
+                }
+                else
+                {
+                    isJumping = false;
+                }
+            }
+
+            if (Input.GetKeyUp(KeyCode.W))
+            {
+                isJumping = false;
+            }
+
+            /*if (isGrounded && isWallSliding == false)
             {
                 extraJumps = extraJumpValue;
             }
@@ -132,7 +161,7 @@ namespace Player
                 animator.SetTrigger("Jump");
                 dust.Play();
                 rb.velocity = Vector2.up * jumpForce;
-            }
+            }*/
 
             // absorb enemies
             /*if (Input.GetKey(KeyCode.S))
