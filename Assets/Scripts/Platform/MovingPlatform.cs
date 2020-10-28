@@ -15,6 +15,19 @@ namespace Platform
             {
                 reverse = !reverse;
             }
+
+            if (other.collider.gameObject.CompareTag("Player"))
+            {
+                other.collider.transform.SetParent(transform);
+            }
+        }
+
+        private void OnCollisionExit2D(Collision2D other)
+        {
+            if (other.collider.gameObject.CompareTag("Player"))
+            {
+                other.collider.transform.SetParent(null);
+            }
         }
 
         private void FixedUpdate()
