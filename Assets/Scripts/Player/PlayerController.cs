@@ -246,10 +246,25 @@ namespace Player
             {
                 StartCoroutine(HurtBlinker());
             }
-
+            
             if ((other.gameObject.name == "Magma" || other.gameObject.name == "Trap"))
             {
                 StartCoroutine(HurtBlinkerForEnvironment(other.gameObject.name));
+            }
+
+            if (other.gameObject.CompareTag("Moving Platform"))
+            {
+                isJumping = true;
+                transform.parent = other.gameObject.transform;
+            }
+
+        }
+
+        private void OnCollisionExit(Collision other)
+        {
+            if (other.gameObject.CompareTag("Moving Platform"))
+            {
+                transform.parent = null;              
             }
         }
 

@@ -9,6 +9,7 @@ TagManager:
   - ShowOnPause
   - Heart
   - Enemy
+  - Moving Platform
   layers:
   - Default
   - TransparentFX
