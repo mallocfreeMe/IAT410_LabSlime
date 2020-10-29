@@ -12,7 +12,6 @@ namespace Platform
         public float speed;
         public Transform startPosition;
         Vector3 nextPosition;
-        private bool reverse;
 
         void Start()
         {
