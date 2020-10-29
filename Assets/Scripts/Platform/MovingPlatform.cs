@@ -6,31 +6,40 @@ namespace Platform
 {
     public class MovingPlatform : MonoBehaviour
     {
-        public Transform pos1, pos2;
-        public float speed;
-        public Transform startPos;
+        public Vector2 velocity;
+        private bool reverse;
 
-        Vector3 nextPos;
-        private void Start()
+        private void OnCollisionEnter2D(Collision2D other)
         {
-            nextPos = startPos.position;
-        }
-        private void Update()
-        {
-            if(transform.position == pos1.position)
+            if (other.collider.gameObject.CompareTag("Ground"))
             {
-                nextPos = pos2.position;
-            }
-            if (transform.position == pos2.position)
-            {
-                nextPos = pos1.position;
+                reverse = !reverse;
             }
 
-            transform.position = Vector3.MoveTowards(transform.position, nextPos, speed*Time.deltaTime);
+            if (other.collider.gameObject.CompareTag("Player"))
+            {
+                other.collider.transform.SetParent(transform);
+            }
         }
-        private void OnDrawGizmos()
+
+        private void OnCollisionExit2D(Collision2D other)
         {
-            Gizmos.DrawLine(pos1.position, pos2.position);
+            if (other.collider.gameObject.CompareTag("Player"))
+            {
+                other.collider.transform.SetParent(null);
+            }
+        }
+
+        private void FixedUpdate()
+        {
+            if (!reverse)
+            {
+                transform.position += (Vector3) (velocity * Time.deltaTime);
+            }
+            else
+            {
+                transform.position += (Vector3) (-velocity * Time.deltaTime);
+            }
         }
     }
 }
