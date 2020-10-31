@@ -529,7 +529,7 @@ GameObject:
   - component: {fileID: 189908276}
   - component: {fileID: 189908275}
   m_Layer: 0
-  m_Name: Lever_On_0
+  m_Name: Switch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27284,7 +27284,7 @@ GameObject:
   - component: {fileID: 1862267445}
   - component: {fileID: 1862267444}
   m_Layer: 0
-  m_Name: Doors_Small_spritsheet_0
+  m_Name: Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
