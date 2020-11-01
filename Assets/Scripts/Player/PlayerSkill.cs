@@ -64,10 +64,10 @@ namespace Player
                 {
                     StartCoroutine(PlayEatingAnimation());
                     isEating = false;
-                    if (enemyIsRed)
+                    /*if (enemyIsRed)
                     {
                         GetComponent<CircleCollider2D>().offset = new Vector2((float)0.01, (float)-0.18);
-                    }
+                    }*/
                 }
             }
         }
