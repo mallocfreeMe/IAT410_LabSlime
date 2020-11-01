@@ -67,6 +67,8 @@ namespace Player
 
         public Light2D globalLight;
 
+        private PlayerSkill playerSkillScript;
+
         // Start is called before the first frame update
         void Start()
         {
@@ -75,6 +77,7 @@ namespace Player
             currentHealth = maxHealth;
             // EnergyBar.SetMaxHealth(maxHealth);
             postProcessVolume = camera.GetComponent<PostProcessVolume>();
+            playerSkillScript = GetComponent<PlayerSkill>();
         }
 
         private void FixedUpdate()
@@ -108,16 +111,6 @@ namespace Player
 
         private void Update()
         {
-            //rb.AddForce(Vector2.right * 100);
-            if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
-            {
-                animator.SetBool("IsRunning", true);
-            }
-            else
-            {
-                animator.SetBool("IsRunning", false);
-            }
-
             if (isGrounded && Input.GetKeyDown(KeyCode.W))
             {
                 dust.Play();

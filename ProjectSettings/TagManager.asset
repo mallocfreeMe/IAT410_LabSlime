@@ -9,6 +9,8 @@ TagManager:
   - ShowOnPause
   - Heart
   - Enemy
+  - red
+  - blue
   layers:
   - Default
   - TransparentFX

@@ -17,7 +17,8 @@ namespace Player
         private RaycastHit2D hasEnemyRight;
         private int detectDistance = 5;
         private int playerLayer = 11;
-        // private int enemyLayer = 12;
+        public bool enemyIsRed;
+        public bool enemyIsBlue;
 
         private void Start()
         {
@@ -37,10 +38,8 @@ namespace Player
         {
             if (Input.GetKeyDown(KeyCode.S))
             {
-                // Debug.Log(hasEnemyRight.collider.gameObject.name);
                 if (hasEnemyRight.collider)
                 {
-                    Debug.Log("collision is detected");
                     enemyBeEaten = hasEnemyRight.collider.gameObject;
                     isEating = true;
                 }
@@ -52,10 +51,23 @@ namespace Player
                 Vector2 newPos = Vector2.MoveTowards(rb.position, target, speed * Time.deltaTime);
                 rb.MovePosition(newPos);
 
+                if (hasEnemyRight.collider.gameObject.CompareTag("red"))
+                {    
+                    // change bounding box size
+                    enemyIsRed = true;
+                } else if (hasEnemyRight.collider.gameObject.CompareTag("blue"))
+                {
+                    enemyIsBlue = true;
+                }
+
                 if (Vector2.Distance(target, rb.position) < eatingRange)
                 {
                     StartCoroutine(PlayEatingAnimation());
                     isEating = false;
+                    if (enemyIsRed)
+                    {
+                        GetComponent<CircleCollider2D>().offset = new Vector2((float)0.01, (float)-0.18);
+                    }
                 }
             }
         }
@@ -63,6 +75,13 @@ namespace Player
         private IEnumerator PlayEatingAnimation()
         {
             animator.SetTrigger("Eat");
+            if (enemyIsRed)
+            {
+                animator.SetBool("IsRed", true);
+            } else if (enemyIsBlue)
+            {
+                animator.SetBool("IsBlue", true);
+            }
             yield return new WaitForSeconds(animationLastSeconds);
             Destroy(enemyBeEaten);
         }
