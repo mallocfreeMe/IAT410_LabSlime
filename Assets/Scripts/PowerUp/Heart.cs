@@ -7,13 +7,11 @@ namespace PowerUp
 {
     public class Heart : MonoBehaviour
     {
-        public PlayerController player;
-        public GameObject effect;
         private void OnCollisionEnter2D(Collision2D other)
         {
             if (other.collider.gameObject.CompareTag("Player"))
             {
-                Instantiate(effect, transform.position, quaternion.identity);
+                other.collider.gameObject.GetComponent<PlayerHealth>().health++;
                 Destroy(gameObject);
             }
         }
