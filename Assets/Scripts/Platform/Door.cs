@@ -5,10 +5,12 @@ namespace Platform
 {
      public class Door : MonoBehaviour
      {
-        public int sence;
           private void OnCollisionEnter2D(Collision2D other)
           {
-               SceneManager.LoadScene(sence);
+               if (other.collider.gameObject.CompareTag("Player"))
+               {
+                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+               }
           }
      }
 }

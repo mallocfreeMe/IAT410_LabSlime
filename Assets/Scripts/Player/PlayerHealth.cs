@@ -72,12 +72,14 @@ namespace Player
             // when player collide with red or blue enemies 
             if (other.gameObject.CompareTag("red") || other.gameObject.CompareTag("blue"))
             {
+                health--;
                 StartCoroutine(HurtBlinker());
             }
             
             // when player collide with magma or trap 
             if (other.gameObject.name == "Magma" || other.gameObject.name == "Trap")
             {
+                health--;
                 StartCoroutine(HurtBlinkerForEnvironment(other.gameObject.name));
             }
         }
@@ -101,28 +103,26 @@ namespace Player
             {
                 collider2D.enabled = true;
             }
-            health--;
         }
 
         private IEnumerator HurtBlinkerForEnvironment(string layerName)
         {
-            int enemyLayer = LayerMask.NameToLayer(layerName);
+            /*int enemyLayer = LayerMask.NameToLayer(layerName);
             int playerLayer = LayerMask.NameToLayer("Player");
             Physics2D.IgnoreLayerCollision(enemyLayer, playerLayer);
             foreach (Collider2D collider2D in myColliderCollider2Ds)
             {
                 collider2D.enabled = false;
-            }
+            }*/
 
             animator.SetLayerWeight(1, 1);
             yield return new WaitForSeconds(invincibleTimeAfterHurt);
-            Physics2D.IgnoreLayerCollision(enemyLayer, playerLayer, false);
+            /*Physics2D.IgnoreLayerCollision(enemyLayer, playerLayer, false);
             animator.SetLayerWeight(1, 0);
             foreach (Collider2D collider2D in myColliderCollider2Ds)
             {
                 collider2D.enabled = true;
-            }
-            health--;
+            }*/
         }
 
         private IEnumerator PlayDeathAnimation ()

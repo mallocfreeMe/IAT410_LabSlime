@@ -70,7 +70,6 @@ namespace Player
 
                 if (hasEnemyRight.collider.gameObject.CompareTag("red"))
                 {
-                    // change bounding box size
                     enemyIsRed = true;
                 }
                 else if (hasEnemyRight.collider.gameObject.CompareTag("blue"))
