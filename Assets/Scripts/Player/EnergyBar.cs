@@ -9,18 +9,16 @@ namespace Player
         public Gradient gradient;
         public Image fill;
 
-        public void SetMaxHealth(int health)
+        public void SetMaxEnergy(int maxEnergy)
         {
-            slider.maxValue = health;
-            slider.value = health;
-
+            slider.maxValue = maxEnergy;
+            slider.value = maxEnergy;
             fill.color =  gradient.Evaluate(1f);
         }
 
-        public void SetHealth(int health)
+        public void SetEnergy(float energy)
         {
-            slider.value = health;
-
+            slider.value = energy;
             fill.color = gradient.Evaluate(slider.normalizedValue);
         }
     }

@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Player
 {
     public class PlayerSkill : MonoBehaviour
     {
+        // consume ability 
         private Rigidbody2D rb;
         private Animator animator;
         private int speed = 20;
@@ -19,11 +21,26 @@ namespace Player
         private int playerLayer = 11;
         public bool enemyIsRed;
         public bool enemyIsBlue;
+        private bool allowToUseConsume;
+
+        // Energy bar time counter 
+        public GameObject energyBar;
+        private EnergyBar energyBarScript;
+        public double currentEnergy = 100;
+        private int maxEnergy = 100;
+        public SpriteRenderer sr;
+
+        // red skill
+        private Weapon weapon;
 
         private void Start()
         {
+            allowToUseConsume = true;
             rb = GetComponent<Rigidbody2D>();
             animator = GetComponent<Animator>();
+            energyBarScript = energyBar.GetComponent<EnergyBar>();
+            sr = GetComponent<SpriteRenderer>();
+            weapon = GetComponent<Weapon>();
         }
 
         private void FixedUpdate()
@@ -36,7 +53,7 @@ namespace Player
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.S))
+            if (Input.GetKeyDown(KeyCode.S) && allowToUseConsume)
             {
                 if (hasEnemyRight.collider)
                 {
@@ -52,10 +69,11 @@ namespace Player
                 rb.MovePosition(newPos);
 
                 if (hasEnemyRight.collider.gameObject.CompareTag("red"))
-                {    
+                {
                     // change bounding box size
                     enemyIsRed = true;
-                } else if (hasEnemyRight.collider.gameObject.CompareTag("blue"))
+                }
+                else if (hasEnemyRight.collider.gameObject.CompareTag("blue"))
                 {
                     enemyIsBlue = true;
                 }
@@ -64,26 +82,58 @@ namespace Player
                 {
                     StartCoroutine(PlayEatingAnimation());
                     isEating = false;
-                    /*if (enemyIsRed)
-                    {
-                        GetComponent<CircleCollider2D>().offset = new Vector2((float)0.01, (float)-0.18);
-                    }*/
                 }
+            }
+
+            if (sr.sprite.name.Contains("Red") || sr.sprite.name.Contains("Blue"))
+            {
+                allowToUseConsume = false;
+                energyBar.SetActive(true);
+                energyBarScript.SetMaxEnergy(maxEnergy);
+                EnergyBarTimeCounter(5 * Time.deltaTime);
+
+                if (currentEnergy <= 0)
+                {
+                    energyBar.SetActive(false);
+                }
+
+                weapon.enabled = true;
+            }
+            else
+            {
+                currentEnergy = maxEnergy;
+                weapon.enabled = false;
+                allowToUseConsume = true;
             }
         }
 
         private IEnumerator PlayEatingAnimation()
         {
             animator.SetTrigger("Eat");
+            animator.SetBool("IsRunning", false);
             if (enemyIsRed)
             {
+                enemyIsRed = false;
                 animator.SetBool("IsRed", true);
-            } else if (enemyIsBlue)
-            {
-                animator.SetBool("IsBlue", true);
+                animator.SetBool("RedTransformBack", false);
+                animator.SetBool("BlueTransformBack", false);
             }
+            else if (enemyIsBlue)
+            {
+                enemyIsBlue = false;
+                animator.SetBool("IsBlue", true);
+                animator.SetBool("RedTransformBack", false);
+                animator.SetBool("BlueTransformBack", false);
+            }
+
             yield return new WaitForSeconds(animationLastSeconds);
             Destroy(enemyBeEaten);
+        }
+
+        private void EnergyBarTimeCounter(float energyConsumedRate)
+        {
+            currentEnergy -= energyConsumedRate;
+            energyBarScript.SetEnergy((float) currentEnergy);
         }
     }
 }

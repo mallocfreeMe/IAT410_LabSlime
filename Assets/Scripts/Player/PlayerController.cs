@@ -1,28 +1,17 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using Enemy;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.Experimental.Rendering.Universal;
-using UnityEngine.Rendering.PostProcessing;
-using UnityEngine.SceneManagement;
-using UnityEngine.Tilemaps;
 
 namespace Player
 {
     public class PlayerController : MonoBehaviour
     {
         public Collider2D[] myColls;
-        public int maxHealth = 100;
-        public int currentHealth;
-        public EnergyBar EnergyBar;
         // public List<GameObject> HealthList;
 
         public ParticleSystem dust;
-        private string spritNames = "RedTest";
-        public Sprite[] Sprites;
 
         public float speed = 7;
         public float jumpForce;
@@ -30,54 +19,32 @@ namespace Player
         private float moveUp;
         private float jumpTimeCounter;
         public float jumpTime;
-        private bool isJumping;
+        public bool isJumping;
 
         private Rigidbody2D rb;
 
         private bool facingRight = true;
 
-        private bool isGrounded;
+        public bool isGrounded;
         public Transform groundCheck;
         public float checkRadius;
         public LayerMask whatIsGround;
 
-        private int extraJumps;
-        public int extraJumpValue;
-
         public Transform enemyDetection;
-
-        public new Camera camera;
-        private PostProcessVolume postProcessVolume;
 
         public LayerMask whatIsWall;
         private bool isTouchingWall;
-        private bool isWallSliding;
         public Transform wallCheck;
         public float wallCheckDistance;
-        public float wallSlideSpeed;
 
         public Animator animator;
 
         public float invincibleTimeAfterHurt = 2.0f;
 
-        // private bool isConsuming;
-
-        public Tilemap ground;
-        public Tilemap box;
-
-        public Light2D globalLight;
-
-        private PlayerSkill playerSkillScript;
-
         // Start is called before the first frame update
         void Start()
         {
             rb = GetComponent<Rigidbody2D>();
-            Sprites = Resources.LoadAll<Sprite>(spritNames);
-            currentHealth = maxHealth;
-            // EnergyBar.SetMaxHealth(maxHealth);
-            postProcessVolume = camera.GetComponent<PostProcessVolume>();
-            playerSkillScript = GetComponent<PlayerSkill>();
         }
 
         private void FixedUpdate()
@@ -87,23 +54,14 @@ namespace Player
             isTouchingWall = Physics2D.Raycast(wallCheck.position, transform.right, wallCheckDistance, whatIsWall);
 
             moveInput = Input.GetAxisRaw("Horizontal");
-            // moveUp = Input.GetAxis("Vertical");
 
             rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
-
-            if (isWallSliding)
-            {
-                if (rb.velocity.y < -wallSlideSpeed)
-                {
-                    rb.velocity = new Vector2(rb.velocity.x, -wallSlideSpeed);
-                }
-            }
 
             if (facingRight == false && moveInput > 0)
             {
                 Flip();
             }
-            else if (facingRight == true && moveInput < 0)
+            else if (facingRight && moveInput < 0)
             {
                 Flip();
             }
@@ -137,54 +95,6 @@ namespace Player
                 isJumping = false;
             }
 
-            /*if (isGrounded && isWallSliding == false)
-            {
-                extraJumps = extraJumpValue;
-            }
-
-            if (Input.GetKeyDown(KeyCode.W) && extraJumps > 0 && isWallSliding == false)
-            {
-                animator.SetTrigger("Jump");
-                dust.Play();
-                rb.velocity = Vector2.up * jumpForce;
-                extraJumps--;
-            }
-            else if (Input.GetKeyDown(KeyCode.W) && extraJumps == 0 && isGrounded && isWallSliding == false)
-            {
-                animator.SetTrigger("Jump");
-                dust.Play();
-                rb.velocity = Vector2.up * jumpForce;
-            }*/
-
-            // absorb enemies
-            /*if (Input.GetKey(KeyCode.S))
-            {
-                RaycastHit2D hasEnemyRight = Physics2D.Raycast(enemyDetection.position, Vector2.right, 640f);
-                if (hasEnemyRight.collider != null && hasEnemyRight.collider.gameObject.GetComponent<Patrol>())
-                {
-                    hasEnemyRight.collider.gameObject.GetComponent<Patrol>().speed = 0;
-                    isConsuming = true;
-                    Vector2 direction = hasEnemyRight.collider.transform.position - transform.position;
-                    rb.AddForce(5.0f * direction * 1);
-                    Destroy(hasEnemyRight.collider.gameObject, 2f);
-                    GetComponent<SpriteRenderer>().color = Color.red;
-                    animator.SetBool("IsEating", true);
-                    //animator.SetBool("IsRed", true);
-                }
-                else
-                {
-                    isConsuming = false;
-                    animator.SetBool("IsEating", false);
-                }
-            }
-
-            if (isConsuming)
-            {
-                rb.AddForce(Vector2.right * 100);
-            }*/
-
-            CheckIfWallSliding();
-
             /*if (HealthList.Count == 0)
             {
                 SceneManager.LoadScene(2);
@@ -198,31 +108,10 @@ namespace Player
             }*/
         }
 
-        private void CheckIfWallSliding()
-        {
-            if (isTouchingWall && !isGrounded && rb.velocity.y < 0)
-            {
-                isWallSliding = true;
-            }
-            else
-            {
-                isWallSliding = false;
-            }
-        }
-
-        void TakeDamage(int damage)
-        {
-            currentHealth -= damage;
-            EnergyBar.SetHealth(currentHealth);
-        }
-
         void Flip()
         {
-            if (!isWallSliding)
-            {
-                facingRight = !facingRight;
-                transform.Rotate(0f, 180f, 0f);
-            }
+            facingRight = !facingRight;
+            transform.Rotate(0f, 180f, 0f);
         }
 
         private void OnCollisionEnter2D(Collision2D other)
@@ -231,8 +120,6 @@ namespace Player
             {
                 Destroy(other.gameObject);
                 GetComponent<Weapon>().enabled = true;
-                extraJumpValue = 9;
-                globalLight.color = new Color(227f/255f, 83f/255f, 83f/255f);
             }
 
             if (other.gameObject.GetComponent<Patrol>())
@@ -256,6 +143,7 @@ namespace Player
                 collider2D.enabled = false;
                 collider2D.enabled = true;
             }
+
             animator.SetLayerWeight(1, 1);
             /*if (HealthList.Count > 0)
             {
@@ -266,7 +154,7 @@ namespace Player
             Physics2D.IgnoreLayerCollision(enemyLayer, playerLayer, false);
             animator.SetLayerWeight(1, 0);
         }
-        
+
         IEnumerator HurtBlinkerForEnvironment(string layerName)
         {
             int enemyLayer = LayerMask.NameToLayer(layerName);
@@ -277,6 +165,7 @@ namespace Player
                 collider2D.enabled = false;
                 collider2D.enabled = true;
             }
+
             animator.SetLayerWeight(1, 1);
             /* if (HealthList.Count > 0)
             {

@@ -20,6 +20,9 @@ TextureImporter:
   - first:
       213: 597102420064095588
     second: BlueSlimeIdle_All_5
+  - first:
+      213: 9183281992882758320
+    second: BlueSlimeIdle_All_6
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -162,8 +165,8 @@ TextureImporter:
         y: 82
         width: 44
         height: 46
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.6972481, y: 0.5060863}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -183,8 +186,8 @@ TextureImporter:
         y: 82
         width: 44
         height: 46
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.6972481, y: 0.5060863}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -204,8 +207,8 @@ TextureImporter:
         y: 82
         width: 45
         height: 46
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.6972481, y: 0.4939139}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -225,8 +228,8 @@ TextureImporter:
         y: 82
         width: 45
         height: 46
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.6972481, y: 0.5060863}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -246,8 +249,8 @@ TextureImporter:
         y: 18
         width: 45
         height: 46
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.6972481, y: 0.5060863}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -267,8 +270,8 @@ TextureImporter:
         y: 18
         width: 45
         height: 46
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.6972481, y: 0.51217246}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -276,6 +279,27 @@ TextureImporter:
       bones: []
       spriteID: 46d427acc75594800800000000000000
       internalID: 597102420064095588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueSlimeIdle_All_6
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 0
+        width: 66
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b2a4024152917f70800000000000000
+      internalID: 9183281992882758320
       vertices: []
       indices: 
       edges: []
