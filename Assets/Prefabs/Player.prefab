@@ -5051,6 +5051,8 @@ GameObject:
   - component: {fileID: 2339885057161219769}
   - component: {fileID: 1789307045}
   - component: {fileID: 1789307039}
+  - component: {fileID: 173507276}
+  - component: {fileID: 173507277}
   m_Layer: 11
   m_Name: Player
   m_TagString: Player
@@ -5143,18 +5145,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.04}
+  m_Offset: {x: -0.0027201176, y: -0.20490408}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.46875, y: 0.4375}
+    oldSize: {x: 0.46875, y: 0.71875}
     newSize: {x: 0.48, y: 0.32}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.38, y: 0.15858579}
+  m_Size: {x: 0.3647523, y: 0.2060566}
   m_EdgeRadius: 0
 --- !u!50 &2339885057161219775
 Rigidbody2D:
@@ -5192,35 +5194,25 @@ MonoBehaviour:
   myColls:
   - {fileID: 2339885057161219774}
   - {fileID: 1789307045}
-  maxHealth: 100
-  currentHealth: 0
-  EnergyBar: {fileID: 0}
-  HealthList:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   dust: {fileID: 2339885055718209695}
-  Sprites: []
-  speed: 5
-  jumpForce: 10
+  speed: 7
+  jumpForce: 8
+  jumpTime: 0.35
+  isJumping: 0
+  isGrounded: 0
   groundCheck: {fileID: 2339885056782660282}
   checkRadius: 0.5
   whatIsGround:
     serializedVersion: 2
     m_Bits: 256
-  extraJumpValue: 1
   enemyDetection: {fileID: 2339885056748957225}
-  camera: {fileID: 0}
   whatIsWall:
     serializedVersion: 2
     m_Bits: 1024
   wallCheck: {fileID: 1176408081}
   wallCheckDistance: 0.65
-  wallSlideSpeed: 0.1
   animator: {fileID: 1789307039}
   invincibleTimeAfterHurt: 3
-  ground: {fileID: 0}
-  box: {fileID: 0}
 --- !u!114 &2339885057161219772
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5242,7 +5234,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2339885057161219763}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7c83486dc748d423697f59e070faed0b, type: 3}
   m_Name: 
@@ -5268,9 +5260,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.01, y: -0.06}
+  m_Offset: {x: -0.0045233965, y: -0.22092694}
   serializedVersion: 2
-  m_Radius: 0.16516946
+  m_Radius: 0.1243816
 --- !u!95 &1789307039
 Animator:
   serializedVersion: 3
@@ -5290,3 +5282,32 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &173507276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2339885057161219763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3df6c88ba6e9476fa93ca565d0d4d57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyIsRed: 0
+  enemyIsBlue: 0
+  energyBar: {fileID: 0}
+  currentEnergy: 100
+  sr: {fileID: 0}
+--- !u!114 &173507277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2339885057161219763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 366420e110dd4428c9464034251940d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
