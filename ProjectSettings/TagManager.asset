@@ -11,6 +11,7 @@ TagManager:
   - Enemy
   - red
   - blue
+  - Boss
   layers:
   - Default
   - TransparentFX

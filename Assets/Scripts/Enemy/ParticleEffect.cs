@@ -9,16 +9,18 @@ namespace Enemy
     public class ParticleEffect : MonoBehaviour
     {
         public GameObject effect;
+        public int health = 1;
 
         private void OnTriggerEnter2D(Collider2D other)
         {
             if (other.gameObject.GetComponent<Bullet>())
             {
-                if (this.name != "Box")
+                health--;
+                if (health <= 0)
                 {
                     Instantiate(effect, transform.position, quaternion.identity);
+                    Destroy(gameObject);
                 }
-                Destroy(gameObject);
             }
         }
     }
