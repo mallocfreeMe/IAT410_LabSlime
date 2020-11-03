@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using Enemy;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -12,7 +13,7 @@ namespace Player
         private Animator animator;
         private int speed = 20;
         private int eatingRange = 2;
-        private bool isEating;
+        public bool isEating;
         private GameObject enemyBeEaten;
         private int animationLastSeconds = 1;
         private Vector2 right;
@@ -55,7 +56,7 @@ namespace Player
         {
             if (Input.GetKeyDown(KeyCode.S) && allowToUseConsume)
             {
-                if (hasEnemyRight.collider)
+                if (hasEnemyRight.collider && !hasEnemyRight.collider.gameObject.CompareTag("Boss"))
                 {
                     enemyBeEaten = hasEnemyRight.collider.gameObject;
                     isEating = true;
@@ -67,6 +68,12 @@ namespace Player
                 Vector2 target = hasEnemyRight.collider.gameObject.transform.position;
                 Vector2 newPos = Vector2.MoveTowards(rb.position, target, speed * Time.deltaTime);
                 rb.MovePosition(newPos);
+                
+                // disable the patrol behaviour
+                if (hasEnemyRight.collider.gameObject.GetComponent<Patrol>())
+                {
+                    hasEnemyRight.collider.gameObject.GetComponent<Patrol>().enabled = false;
+                }
 
                 if (hasEnemyRight.collider.gameObject.CompareTag("red"))
                 {
