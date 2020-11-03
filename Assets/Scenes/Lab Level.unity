@@ -47458,6 +47458,14 @@ PrefabInstance:
       propertyPath: continueText
       value: 
       objectReference: {fileID: 373670309}
+    - target: {fileID: 8544668978613972681, guid: 45e0f63735b8a4fecbe07813418207fd, type: 3}
+      propertyPath: sentences.Array.data[2]
+      value: press w key to perform a jump
+      objectReference: {fileID: 0}
+    - target: {fileID: 8544668978613972681, guid: 45e0f63735b8a4fecbe07813418207fd, type: 3}
+      propertyPath: sentences.Array.data[1]
+      value: press a and d keys to move left and right
+      objectReference: {fileID: 0}
     - target: {fileID: 8544668978613972694, guid: 45e0f63735b8a4fecbe07813418207fd, type: 3}
       propertyPath: m_LocalPosition.x
       value: 524.8109
