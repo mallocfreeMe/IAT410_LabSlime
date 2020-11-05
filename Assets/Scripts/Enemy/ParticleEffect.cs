@@ -15,10 +15,10 @@ namespace Enemy
         {
             if (other.gameObject.GetComponent<Bullet>())
             {
+                Instantiate(effect, transform.position, quaternion.identity);
                 health--;
                 if (health <= 0)
                 {
-                    Instantiate(effect, transform.position, quaternion.identity);
                     Destroy(gameObject);
                 }
             }
