@@ -30,10 +30,12 @@ namespace Platform
             }
             transform.position = Vector3.MoveTowards(transform.position, nextPosition, speed * Time.deltaTime);
         }
+
         private void OnDrawGizmos()
         {
             Gizmos.DrawLine(pos1.position, pos2.position);
         }
+        
         void OnCollisionEnter2D(Collision2D other)
         {
             if (other.collider.gameObject.CompareTag("Player"))
