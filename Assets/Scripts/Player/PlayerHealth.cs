@@ -20,6 +20,7 @@ namespace Player
         private Animator animator;
         private PlayerSkill _playerSkillScript;
         private bool _isInvincible;
+        private PlayerDash _playerDashScript;
 
         public GameObject levelLoader;
 
@@ -27,6 +28,7 @@ namespace Player
         {
             animator = GetComponent<Animator>();
             _playerSkillScript = GetComponent<PlayerSkill>();
+            _playerDashScript = GetComponent<PlayerDash>();
         }
 
         private void Update()
@@ -76,7 +78,7 @@ namespace Player
         {
             // when player collide with red or blue enemies 
             if ((other.gameObject.CompareTag("red") || other.gameObject.CompareTag("blue") || other.gameObject.CompareTag("Boss")) &&
-                !_playerSkillScript.isEating && !_isInvincible)
+                !_playerSkillScript.isEating && !_isInvincible && _playerDashScript.direction == 0)
             {
                 _isInvincible = true;
                 health--;

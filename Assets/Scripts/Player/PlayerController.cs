@@ -19,15 +19,18 @@ namespace Player
         private float jumpTimeCounter;
         public float jumpTime;
         public bool isJumping;
-        private bool facingRight = true;
+        public bool facingRight = true;
         public bool isGrounded;
         public float checkRadius;
         public float invincibleTimeAfterHurt = 2.0f;
+
+        private PlayerDash _playerDashScript;
 
         // Start is called before the first frame update
         private void Start()
         {
             rb = GetComponent<Rigidbody2D>();
+            _playerDashScript = GetComponent<PlayerDash>();
         }
 
         private void Flip()
@@ -41,9 +44,13 @@ namespace Player
             isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
 
             moveInput = Input.GetAxisRaw("Horizontal");
-
-            rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
-
+            
+            // if player is not dashing
+            if (_playerDashScript.direction == 0)
+            {
+                rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
+            }
+            
             if (facingRight == false && moveInput > 0)
             {
                 Flip();

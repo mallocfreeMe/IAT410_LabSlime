@@ -23,5 +23,21 @@ namespace Enemy
                 }
             }
         }
+
+        private void OnCollisionEnter2D(Collision2D other)
+        {
+            if (other.gameObject.GetComponent<PlayerDash>())
+            {
+                if (other.gameObject.GetComponent<PlayerDash>().direction != 0)
+                {
+                    Instantiate(effect, transform.position, quaternion.identity);
+                    health--;
+                    if (health <= 0)
+                    {
+                        Destroy(gameObject);
+                    } 
+                }
+            }
+        }
     }
 }
