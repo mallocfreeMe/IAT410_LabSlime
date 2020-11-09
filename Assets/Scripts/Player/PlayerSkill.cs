@@ -24,15 +24,21 @@ namespace Player
         public bool enemyIsBlue;
         private bool allowToUseConsume;
 
-        // Energy bar time counter 
+        // Energy bar counter
         public GameObject energyBar;
         private EnergyBar energyBarScript;
         public double currentEnergy = 100;
         private int maxEnergy = 100;
         public SpriteRenderer sr;
+        public bool initializeEnergy = true;
 
-        // red skill
-        private Weapon weapon;
+        // red color character's skill - dash move
+        private PlayerDash _playerDashScript;
+
+        // blue color character's skill - float in the air
+
+        // green color character's skill - shoot bullet
+        // private Weapon weapon;
 
         private void Start()
         {
@@ -41,7 +47,14 @@ namespace Player
             animator = GetComponent<Animator>();
             energyBarScript = energyBar.GetComponent<EnergyBar>();
             sr = GetComponent<SpriteRenderer>();
-            weapon = GetComponent<Weapon>();
+
+            // red
+            _playerDashScript = GetComponent<PlayerDash>();
+
+            // blue
+
+            // green 
+            //weapon = GetComponent<Weapon>();
         }
 
         private void FixedUpdate()
@@ -68,7 +81,7 @@ namespace Player
                 Vector2 target = hasEnemyRight.collider.gameObject.transform.position;
                 Vector2 newPos = Vector2.MoveTowards(rb.position, target, speed * Time.deltaTime);
                 rb.MovePosition(newPos);
-                
+
                 // disable the patrol behaviour
                 if (hasEnemyRight.collider.gameObject.GetComponent<Patrol>())
                 {
@@ -91,24 +104,41 @@ namespace Player
                 }
             }
 
-            if (sr.sprite.name.Contains("Red") || sr.sprite.name.Contains("Blue"))
+            if ((sr.sprite.name.Contains("Red") || sr.sprite.name.Contains("Blue") ||
+                 sr.sprite.name.Contains("Green")) && initializeEnergy)
             {
                 allowToUseConsume = false;
                 energyBar.SetActive(true);
                 energyBarScript.SetMaxEnergy(maxEnergy);
-                EnergyBarTimeCounter(5 * Time.deltaTime);
-
+                initializeEnergy = false;
+                
+                // red 
+                if (sr.sprite.name.Contains("Red"))
+                {
+                    _playerDashScript.enabled = true;
+                }
+            }
+            else if ((sr.sprite.name.Contains("Red") || sr.sprite.name.Contains("Blue") ||
+                      sr.sprite.name.Contains("Green")) && !initializeEnergy)
+            {
                 if (currentEnergy <= 0)
                 {
                     energyBar.SetActive(false);
+                    //weapon.enabled = false;
+                    _playerDashScript.direction = 0;
+                    _playerDashScript.enabled = false;
                 }
-
-                weapon.enabled = true;
+                
+                /*if (Input.GetKeyDown(KeyCode.Space))
+                {
+                    EnergyBarTimeCounter(25);
+                }*/
             }
-            else
+            else if (!sr.sprite.name.Contains("Red") || !sr.sprite.name.Contains("Blue") ||
+                     !sr.sprite.name.Contains("Green"))
             {
+                initializeEnergy = true;
                 currentEnergy = maxEnergy;
-                weapon.enabled = false;
                 allowToUseConsume = true;
             }
         }
@@ -136,7 +166,7 @@ namespace Player
             Destroy(enemyBeEaten);
         }
 
-        private void EnergyBarTimeCounter(float energyConsumedRate)
+        public void EnergyBarTimeCounter(float energyConsumedRate)
         {
             currentEnergy -= energyConsumedRate;
             energyBarScript.SetEnergy((float) currentEnergy);
