@@ -7444,6 +7444,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6780605583053924489, guid: c127c904ab08c4f199bc5f9ef58fad43, type: 3}
   m_PrefabInstance: {fileID: 6780605583073729345}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &269175873 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2339885057161219763, guid: 20f921b05009e45f393042de356de730, type: 3}
+  m_PrefabInstance: {fileID: 899271048}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &373670309 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6780605583312952036, guid: c127c904ab08c4f199bc5f9ef58fad43, type: 3}
@@ -47288,6 +47293,10 @@ PrefabInstance:
       propertyPath: sentences.Array.data[0]
       value: Hey, weclome to the game, I am your AI companion
       objectReference: {fileID: 0}
+    - target: {fileID: 8544668978613972681, guid: 45e0f63735b8a4fecbe07813418207fd, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 269175873}
     - target: {fileID: 8544668978613972694, guid: 45e0f63735b8a4fecbe07813418207fd, type: 3}
       propertyPath: m_LocalPosition.x
       value: 524.8109

@@ -5057,6 +5057,7 @@ GameObject:
   - component: {fileID: 1789307039}
   - component: {fileID: 173507276}
   - component: {fileID: 173507277}
+  - component: {fileID: 1082217296}
   m_Layer: 11
   m_Name: Player
   m_TagString: Player
@@ -5204,6 +5205,7 @@ MonoBehaviour:
   jumpForce: 8
   jumpTime: 0.35
   isJumping: 0
+  facingRight: 1
   isGrounded: 0
   checkRadius: 0.2
   invincibleTimeAfterHurt: 3
@@ -5296,6 +5298,7 @@ MonoBehaviour:
   energyBar: {fileID: 0}
   currentEnergy: 100
   sr: {fileID: 0}
+  initializeEnergy: 1
 --- !u!114 &173507277
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5308,3 +5311,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 366420e110dd4428c9464034251940d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1082217296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2339885057161219763}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1008ae61002114b7b8669e7adbb2f21f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dashSpeed: 40
+  dashTime: 0
+  startDashTime: 0.1
+  direction: 0

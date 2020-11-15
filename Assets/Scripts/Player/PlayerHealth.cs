@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using Platform;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -23,6 +25,7 @@ namespace Player
         private PlayerDash _playerDashScript;
 
         public GameObject levelLoader;
+        private Transform respawnPos;
 
         private void Start()
         {
@@ -63,6 +66,13 @@ namespace Player
             {
                 levelLoader.SetActive(true);
                 levelLoader.GetComponent<LevelLoader>().timeCounter = 1;
+
+                _playerSkillScript.currentEnergy = 0;
+                if (respawnPos != null)
+                {
+                    transform.position = respawnPos.position;
+                }
+
                 health = numOfHearts;
                 var enemyLayer = LayerMask.NameToLayer("Enemy");
                 var magmaLayer = LayerMask.NameToLayer("Magma");
@@ -77,7 +87,8 @@ namespace Player
         private void OnCollisionEnter2D(Collision2D other)
         {
             // when player collide with red or blue enemies 
-            if ((other.gameObject.CompareTag("red") || other.gameObject.CompareTag("blue") || other.gameObject.CompareTag("Boss")) &&
+            if ((other.gameObject.CompareTag("red") || other.gameObject.CompareTag("blue") ||
+                 other.gameObject.CompareTag("Boss")) &&
                 !_playerSkillScript.isEating && !_isInvincible && _playerDashScript.direction == 0)
             {
                 _isInvincible = true;
@@ -91,6 +102,14 @@ namespace Player
                 _isInvincible = true;
                 health--;
                 StartCoroutine(HurtBlinkerForEnvironment(other.gameObject.name));
+            }
+        }
+
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            if (other.gameObject.CompareTag("CheckPoint"))
+            {
+                respawnPos = other.transform;
             }
         }
 
