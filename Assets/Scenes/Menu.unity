@@ -236,7 +236,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 4.1877136, y: -2.4000015}
+  m_AnchoredPosition: {x: 4.187683, y: -2.4000015}
   m_SizeDelta: {x: 301.7665, y: 231.5316}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &7068991
@@ -526,6 +526,7 @@ GameObject:
   - component: {fileID: 570197439}
   - component: {fileID: 570197438}
   - component: {fileID: 570197441}
+  - component: {fileID: 570197442}
   m_Layer: 5
   m_Name: MenuWindow
   m_TagString: Untagged
@@ -630,6 +631,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6a98894337f1b54080f148d6dd01c8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &570197442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 570197436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df5b69773f97c452cbcd186dbf5585fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onStart:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1188070356}
+        m_TargetAssemblyTypeName: UnityEngine.UI.Selectable, UnityEngine.UI
+        m_MethodName: Select
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &712527976
 GameObject:
   m_ObjectHideFlags: 0
@@ -667,8 +695,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -0.181}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -82}
-  m_SizeDelta: {x: 537.198, y: 209.732}
+  m_AnchoredPosition: {x: 0, y: -187.7061}
+  m_SizeDelta: {x: 1111.8337, y: 227.4279}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &712527978
 MonoBehaviour:
@@ -863,7 +891,7 @@ GameObject:
   - component: {fileID: 1188070356}
   - component: {fileID: 1188070359}
   m_Layer: 5
-  m_Name: OPTIONS
+  m_Name: PLAY
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -886,8 +914,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0.154}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 10}
-  m_SizeDelta: {x: 914.2778, y: 209.732}
+  m_AnchoredPosition: {x: 0, y: -38.1639}
+  m_SizeDelta: {x: 1046.6893, y: 217.3437}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1188070356
 MonoBehaviour:
