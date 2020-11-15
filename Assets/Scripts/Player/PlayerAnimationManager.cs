@@ -97,6 +97,12 @@ namespace Player
                     //animator.SetTrigger("Jump");
                 }
             }
+            
+            // dash animation for red 
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                animator.SetTrigger("RedDash");
+            }
 
             // transform back animation
             if (playerSkillScript.currentEnergy <= 0 && (playerSkillScript.sr.sprite.name.Contains("Red") || playerSkillScript.sr.sprite.name.Contains("Blue")))
