@@ -12,6 +12,7 @@ TagManager:
   - red
   - blue
   - Boss
+  - CheckPoint
   layers:
   - Default
   - TransparentFX
