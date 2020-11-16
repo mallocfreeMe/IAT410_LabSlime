@@ -13,6 +13,7 @@ TagManager:
   - blue
   - Boss
   - CheckPoint
+  - green
   layers:
   - Default
   - TransparentFX

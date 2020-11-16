@@ -9,11 +9,14 @@ namespace Player
         private PlayerSkill playerSkillScript;
         private Animator animator;
 
+        private PlayerFloat _playerFloatScript;
+
         void Start()
         {
             playerControllerScript = GetComponent<PlayerController>();
             playerSkillScript = GetComponent<PlayerSkill>();
             animator = GetComponent<Animator>();
+            _playerFloatScript = GetComponent<PlayerFloat>();
         }
 
         void Update()
@@ -29,7 +32,11 @@ namespace Player
                 {
                     animator.SetBool("BlueIsRunning", true);
                 }
-                else if (!animator.GetBool("IsRed") && !animator.GetBool("IsBlue"))
+                else if (animator.GetBool("IsGreen"))
+                {
+                    animator.SetBool("GreenIsRunning", true);
+                }
+                else if (!animator.GetBool("IsRed") && !animator.GetBool("IsBlue") && !animator.GetBool("IsGreen"))
                 {
                     animator.SetBool("IsRunning", true);
                 }
@@ -44,7 +51,11 @@ namespace Player
                 {
                     animator.SetBool("BlueIsRunning", false);
                 }
-                else if (!animator.GetBool("IsRed") && !animator.GetBool("IsBlue"))
+                else if (animator.GetBool("IsGreen"))
+                {
+                    animator.SetBool("GreenIsRunning", false);
+                }
+                else if (!animator.GetBool("IsRed") && !animator.GetBool("IsBlue") && !animator.GetBool("IsGreen"))
                 {
                     animator.SetBool("IsRunning", false);
                 }
@@ -61,7 +72,11 @@ namespace Player
                 {
                     animator.SetTrigger("BlueJump");
                 }
-                else if (!animator.GetBool("IsRed") && !animator.GetBool("IsBlue"))
+                else if (animator.GetBool("IsGreen"))
+                {
+                    animator.SetTrigger("GreenJump");
+                }
+                else if (!animator.GetBool("IsRed") && !animator.GetBool("IsBlue") && !animator.GetBool("IsGreen"))
                 {
                     animator.SetTrigger("Jump");
                 }
@@ -76,6 +91,10 @@ namespace Player
                 else if (animator.GetBool("IsBlue"))
                 {
                     animator.SetBool("BlueOnGround", true);
+                }
+                else if (animator.GetBool("IsGreen"))
+                {
+                    animator.SetBool("GreenOnGround", true);
                 }
                 else
                 {
@@ -92,20 +111,51 @@ namespace Player
                 {
                     animator.SetBool("BlueOnGround", false);
                 }
+                else if (animator.GetBool("IsGreen"))
+                {
+                    animator.SetBool("GreenOnGround", false);
+                }
                 else
                 {
                     //animator.SetTrigger("Jump");
                 }
             }
-            
-            // dash animation for red 
-            if (Input.GetKeyDown(KeyCode.Space))
+
+            // red dash
+            if (animator.GetBool("IsRed"))
             {
-                animator.SetTrigger("RedDash");
+                if (Input.GetKeyDown(KeyCode.Space))
+                {
+                    animator.SetTrigger("RedDash");
+                }
+            }
+            
+            // blue float
+            if (animator.GetBool("IsBlue"))
+            {
+                if (_playerFloatScript.isFloating)
+                {
+                    animator.SetBool("BlueFloat", true);
+                }
+                else
+                {
+                    animator.SetBool("BlueFloat", false);
+                }
+            }
+            
+            // green shoot projectiles
+            if (animator.GetBool("IsGreen"))
+            {
+                if (Input.GetKeyDown(KeyCode.Space))
+                {
+                    animator.SetTrigger("GreenShoot");
+                }
             }
 
             // transform back animation
-            if (playerSkillScript.currentEnergy <= 0 && (playerSkillScript.sr.sprite.name.Contains("Red") || playerSkillScript.sr.sprite.name.Contains("Blue")))
+            if (playerSkillScript.currentEnergy <= 0 && (playerSkillScript.sr.sprite.name.Contains("Red") ||
+                                                         playerSkillScript.sr.sprite.name.Contains("Blue") ||
+                                                         playerSkillScript.sr.sprite.name.Contains("Green")))
             {
                 if (animator.GetBool("IsRed"))
                 {
@@ -119,6 +169,13 @@ namespace Player
                     animator.SetBool("BlueTransformBack", true);
                     animator.SetBool("IsBlue", false);
                     animator.SetBool("BlueOnGround", false);
+                }
+
+                if (animator.GetBool("IsGreen"))
+                {
+                    animator.SetBool("GreenTransformBack", true);
+                    animator.SetBool("IsGreen", false);
+                    animator.SetBool("GreenOnGround", false);
                 }
             }
         }

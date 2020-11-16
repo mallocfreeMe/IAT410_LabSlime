@@ -25,12 +25,14 @@ namespace Player
         public float invincibleTimeAfterHurt = 2.0f;
 
         private PlayerDash _playerDashScript;
+        private PlayerFloat _playerFloatScript;
 
         // Start is called before the first frame update
         private void Start()
         {
             rb = GetComponent<Rigidbody2D>();
             _playerDashScript = GetComponent<PlayerDash>();
+            _playerFloatScript = GetComponent<PlayerFloat>();
         }
 
         private void Flip()

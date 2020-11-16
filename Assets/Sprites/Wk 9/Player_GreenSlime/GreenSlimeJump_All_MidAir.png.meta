@@ -11,6 +11,9 @@ TextureImporter:
   - first:
       213: -5983881449243863937
     second: GreenSlimeJump_All_MidAir_2
+  - first:
+      213: 902918532566604788
+    second: GreenSlimeJump_All_MidAir_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -55,7 +58,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 64
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -155,8 +158,8 @@ TextureImporter:
         y: 413
         width: 35
         height: 46
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -176,8 +179,8 @@ TextureImporter:
         y: 304
         width: 34
         height: 46
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -197,8 +200,8 @@ TextureImporter:
         y: 304
         width: 34
         height: 46
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -206,6 +209,27 @@ TextureImporter:
       bones: []
       spriteID: f7415cf968bf4fca0800000000000000
       internalID: -5983881449243863937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenSlimeJump_All_MidAir_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 152
+        width: 489
+        height: 328
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4fbdfba1f9fc78c00800000000000000
+      internalID: 902918532566604788
       vertices: []
       indices: 
       edges: []

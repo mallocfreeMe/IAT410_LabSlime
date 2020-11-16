@@ -22,6 +22,7 @@ namespace Player
         private int playerLayer = 11;
         public bool enemyIsRed;
         public bool enemyIsBlue;
+        public bool enemyIsGreen;
         private bool allowToUseConsume;
 
         // Energy bar counter
@@ -36,9 +37,10 @@ namespace Player
         private PlayerDash _playerDashScript;
 
         // blue color character's skill - float in the air
+        private PlayerFloat _playerFloatScript;
 
         // green color character's skill - shoot bullet
-        // private Weapon weapon;
+        private PlayerWeapon _playerWeaponScript;
 
         private void Start()
         {
@@ -52,9 +54,10 @@ namespace Player
             _playerDashScript = GetComponent<PlayerDash>();
 
             // blue
+            _playerFloatScript = GetComponent<PlayerFloat>();
 
             // green 
-            //weapon = GetComponent<Weapon>();
+            _playerWeaponScript = GetComponent<PlayerWeapon>();
         }
 
         private void FixedUpdate()
@@ -96,6 +99,10 @@ namespace Player
                 {
                     enemyIsBlue = true;
                 }
+                else if (hasEnemyRight.collider.gameObject.CompareTag("green"))
+                {
+                    enemyIsGreen = true;
+                }
 
                 if (Vector2.Distance(target, rb.position) < eatingRange)
                 {
@@ -111,11 +118,23 @@ namespace Player
                 energyBar.SetActive(true);
                 energyBarScript.SetMaxEnergy(maxEnergy);
                 initializeEnergy = false;
-                
+
                 // red 
                 if (sr.sprite.name.Contains("Red"))
                 {
                     _playerDashScript.enabled = true;
+                }
+
+                // blue 
+                if (sr.sprite.name.Contains("Blue"))
+                {
+                    _playerFloatScript.enabled = true;
+                }
+                
+                // green 
+                if (sr.sprite.name.Contains("Green"))
+                {
+                    _playerWeaponScript.enabled = true;
                 }
             }
             else if ((sr.sprite.name.Contains("Red") || sr.sprite.name.Contains("Blue") ||
@@ -124,15 +143,11 @@ namespace Player
                 if (currentEnergy <= 0)
                 {
                     energyBar.SetActive(false);
-                    //weapon.enabled = false;
                     _playerDashScript.direction = 0;
                     _playerDashScript.enabled = false;
+                    _playerFloatScript.enabled = false;
+                    _playerWeaponScript.enabled = false;
                 }
-                
-                /*if (Input.GetKeyDown(KeyCode.Space))
-                {
-                    EnergyBarTimeCounter(25);
-                }*/
             }
             else if (!sr.sprite.name.Contains("Red") || !sr.sprite.name.Contains("Blue") ||
                      !sr.sprite.name.Contains("Green"))
@@ -153,6 +168,7 @@ namespace Player
                 animator.SetBool("IsRed", true);
                 animator.SetBool("RedTransformBack", false);
                 animator.SetBool("BlueTransformBack", false);
+                animator.SetBool("GreenTransformBack", false);
             }
             else if (enemyIsBlue)
             {
@@ -160,6 +176,15 @@ namespace Player
                 animator.SetBool("IsBlue", true);
                 animator.SetBool("RedTransformBack", false);
                 animator.SetBool("BlueTransformBack", false);
+                animator.SetBool("GreenTransformBack", false);
+            }
+            else if (enemyIsGreen)
+            {
+                enemyIsGreen = false;
+                animator.SetBool("IsGreen", true);
+                animator.SetBool("RedTransformBack", false);
+                animator.SetBool("BlueTransformBack", false);
+                animator.SetBool("GreenTransformBack", false);
             }
 
             yield return new WaitForSeconds(animationLastSeconds);

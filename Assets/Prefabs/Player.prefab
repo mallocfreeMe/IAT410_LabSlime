@@ -4972,7 +4972,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2339885056124072572}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.174, y: -0.142, z: 0}
+  m_LocalPosition: {x: 0.302, y: -0.261, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2339885057161219773}
@@ -5051,13 +5051,14 @@ GameObject:
   - component: {fileID: 2339885057161219774}
   - component: {fileID: 2339885057161219775}
   - component: {fileID: 2339885057161219768}
-  - component: {fileID: 2339885057161219772}
   - component: {fileID: 2339885057161219769}
   - component: {fileID: 1789307045}
   - component: {fileID: 1789307039}
   - component: {fileID: 173507276}
   - component: {fileID: 173507277}
   - component: {fileID: 1082217296}
+  - component: {fileID: 1095907943}
+  - component: {fileID: 2851839999279114994}
   m_Layer: 11
   m_Name: Player
   m_TagString: Player
@@ -5209,20 +5210,6 @@ MonoBehaviour:
   isGrounded: 0
   checkRadius: 0.2
   invincibleTimeAfterHurt: 3
---- !u!114 &2339885057161219772
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2339885057161219763}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6bb2547a49aa44f418dd0d5cd3afc359, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  firePoint: {fileID: 2339885056124072575}
-  bulletPrefab: {fileID: 6588366845305888634, guid: c9ff3324879fa4569beb12aa8ca1d3c5, type: 3}
 --- !u!114 &2339885057161219769
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5295,6 +5282,7 @@ MonoBehaviour:
   isEating: 0
   enemyIsRed: 0
   enemyIsBlue: 0
+  enemyIsGreen: 0
   energyBar: {fileID: 0}
   currentEnergy: 100
   sr: {fileID: 0}
@@ -5327,3 +5315,30 @@ MonoBehaviour:
   dashTime: 0
   startDashTime: 0.1
   direction: 0
+--- !u!114 &1095907943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2339885057161219763}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df2923f21486144e48bcc53f57215a8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isFloating: 0
+--- !u!114 &2851839999279114994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2339885057161219763}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bb2547a49aa44f418dd0d5cd3afc359, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firePoint: {fileID: 2339885056124072575}
+  bulletPrefab: {fileID: 6588366845305888634, guid: c9ff3324879fa4569beb12aa8ca1d3c5, type: 3}
