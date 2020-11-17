@@ -213,27 +213,6 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: GreenSlimeJump_All_MidAir_3
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 152
-        width: 489
-        height: 328
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4fbdfba1f9fc78c00800000000000000
-      internalID: 902918532566604788
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     physicsShape: []
     bones: []
