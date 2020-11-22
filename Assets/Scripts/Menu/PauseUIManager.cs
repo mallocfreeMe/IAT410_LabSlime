@@ -37,7 +37,6 @@ namespace Menu
 				}
 				else if (Time.timeScale == 0)
 				{
-					Debug.Log("high");
 					Time.timeScale = 1;
 					hidePaused();
 				}
