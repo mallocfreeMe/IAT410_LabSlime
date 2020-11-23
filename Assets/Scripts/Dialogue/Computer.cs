@@ -9,22 +9,22 @@ namespace Dialogue
         public GameObject computerUI;
         public GameObject ai;
 
-        private bool _open;
+        public bool open;
         private void OnCollisionEnter2D(Collision2D other)
         {
-            if (!_open)
+            if (!open)
             {
                 if (other.gameObject.CompareTag("Player"))
                 {
                     computerUI.SetActive(true);
-                    _open = true;
+                    open = true;
                 }
             }
         }
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Space) && _open)
+            if (Input.GetKeyDown(KeyCode.Space) && open)
             {
                 computerUI.SetActive(false);
                 ai.GetComponent<AIPath>().enabled = true;
