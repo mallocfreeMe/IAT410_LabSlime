@@ -7,13 +7,13 @@ namespace Platform
     {
         private Animator _animator;
         public GameObject key;
-        private Key _keyScript;
+        private Switch _keyScript;
         private BoxCollider2D _collider2D;
 
         private void Start()
         {
             _animator = GetComponent<Animator>();
-            _keyScript = key.GetComponent<Key>();
+            _keyScript = key.GetComponent<Switch>();
             _collider2D = GetComponent<BoxCollider2D>();
         }
 
