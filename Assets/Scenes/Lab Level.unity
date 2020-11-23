@@ -46612,7 +46612,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3561144458601271344, guid: ebb285514ed5945d6a9b0ca50263d531, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3561144458601271350, guid: ebb285514ed5945d6a9b0ca50263d531, type: 3}
       propertyPath: m_LocalPosition.x
@@ -47768,7 +47768,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6780605583053924489, guid: c127c904ab08c4f199bc5f9ef58fad43, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6780605583053924490, guid: c127c904ab08c4f199bc5f9ef58fad43, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 148.7
       objectReference: {fileID: 0}
     - target: {fileID: 6780605583076652639, guid: c127c904ab08c4f199bc5f9ef58fad43, type: 3}
       propertyPath: m_IsActive
@@ -47850,6 +47854,14 @@ PrefabInstance:
       propertyPath: m_margin.z
       value: -63.92054
       objectReference: {fileID: 0}
+    - target: {fileID: 6780605583312952041, guid: c127c904ab08c4f199bc5f9ef58fad43, type: 3}
+      propertyPath: m_fontStyle
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6780605583312952041, guid: c127c904ab08c4f199bc5f9ef58fad43, type: 3}
+      propertyPath: m_lineSpacing
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6780605583369053965, guid: c127c904ab08c4f199bc5f9ef58fad43, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -47861,7 +47873,7 @@ PrefabInstance:
     - target: {fileID: 6780605583596734440, guid: c127c904ab08c4f199bc5f9ef58fad43, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 1a590446c37904c4f888eb3b8e421b4a, type: 3}
+      objectReference: {fileID: 21300000, guid: b961f1c3539114161bf131ddeb0aadc6, type: 3}
     - target: {fileID: 6780605583849965458, guid: c127c904ab08c4f199bc5f9ef58fad43, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -47902,6 +47914,10 @@ PrefabInstance:
       value: DialogueManager
       objectReference: {fileID: 0}
     - target: {fileID: 8544668978613972681, guid: 45e0f63735b8a4fecbe07813418207fd, type: 3}
+      propertyPath: sentences.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8544668978613972681, guid: 45e0f63735b8a4fecbe07813418207fd, type: 3}
       propertyPath: textDisplay
       value: 
       objectReference: {fileID: 114717641}
@@ -47919,20 +47935,24 @@ PrefabInstance:
       objectReference: {fileID: 373670309}
     - target: {fileID: 8544668978613972681, guid: 45e0f63735b8a4fecbe07813418207fd, type: 3}
       propertyPath: sentences.Array.data[2]
-      value: press w key to perform a jump
+      value: I'm your personal assitant and i'm here to help you!
       objectReference: {fileID: 0}
     - target: {fileID: 8544668978613972681, guid: 45e0f63735b8a4fecbe07813418207fd, type: 3}
       propertyPath: sentences.Array.data[1]
-      value: press a and d keys to move left and right
+      value: Open computer to activate me.
       objectReference: {fileID: 0}
     - target: {fileID: 8544668978613972681, guid: 45e0f63735b8a4fecbe07813418207fd, type: 3}
       propertyPath: sentences.Array.data[0]
-      value: Hey, weclome to the game, I am your AI companion
+      value: 'Press A and D keys (or arrow keys) to move your body. '
       objectReference: {fileID: 0}
     - target: {fileID: 8544668978613972681, guid: 45e0f63735b8a4fecbe07813418207fd, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 269175873}
+    - target: {fileID: 8544668978613972681, guid: 45e0f63735b8a4fecbe07813418207fd, type: 3}
+      propertyPath: sentences.Array.data[3]
+      value: ' I''m your personal assitant and i''m here to help you!'
+      objectReference: {fileID: 0}
     - target: {fileID: 8544668978613972694, guid: 45e0f63735b8a4fecbe07813418207fd, type: 3}
       propertyPath: m_LocalPosition.x
       value: 524.8109
