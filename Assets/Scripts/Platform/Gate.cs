@@ -1,4 +1,5 @@
 using System;
+using Dialogue;
 using UnityEngine;
 
 namespace Platform
@@ -10,6 +11,9 @@ namespace Platform
         private Switch _keyScript;
         private BoxCollider2D _collider2D;
 
+        public Computer computerUI;
+        private bool _special;
+
         private void Start()
         {
             _animator = GetComponent<Animator>();
@@ -19,11 +23,23 @@ namespace Platform
 
         private void Update()
         {
-            if (_keyScript.isPicked)
+            if (!computerUI)
             {
-                _animator.SetTrigger("Open");
-                _keyScript.isPicked = false;
-                _collider2D.enabled = false;
+                if (_keyScript.isPicked)
+                {
+                    _animator.SetTrigger("Open");
+                    _keyScript.isPicked = false;
+                    _collider2D.enabled = false;
+                }
+            }
+            else
+            {
+                if (computerUI.open && !_special)
+                {
+                    _animator.SetTrigger("Open");
+                    _special = true;
+                    _collider2D.enabled = false;
+                }
             }
         }
     }
