@@ -11,6 +11,8 @@ namespace Platform
         public float timeCounter = 1;
         public GameObject dialogueManager;
 
+        public bool disable;
+
         private void Start()
         {
             for (int i = 0; i < hearts.Length; i++)
@@ -28,7 +30,11 @@ namespace Platform
                 {
                     hearts[i].gameObject.SetActive(true);
                 }
-                dialogueManager.SetActive(true);
+
+                if (!disable)
+                {
+                    dialogueManager.SetActive(true);
+                }
                 gameObject.SetActive(false);
             }
         }

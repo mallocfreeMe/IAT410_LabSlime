@@ -11,6 +11,9 @@ namespace Enemy
         private Transform player;
         private Rigidbody2D rb;
         private Boss boss;
+
+        public bool isAttacking;
+
         // public GameObject effect;
 
         // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
@@ -26,16 +29,22 @@ namespace Enemy
         {
             boss.LookAtPlayer();
             Vector2 target = new Vector2(player.position.x, rb.position.y);
-            Vector2 newPos = Vector2.MoveTowards(rb.position, target, speed * Time.deltaTime);
 
-            if (Vector2.Distance(player.position, rb.position) < attackRange)
+            if (Math.Abs(target.x - rb.position.x) < 6 && Math.Abs(target.y - rb.position.y) < 2 && !boss.stop)
             {
-                animator.SetTrigger("Attack");
-                //Instantiate(effect, rb.position, quaternion.identity);
-            }
-            else
-            {
-                rb.MovePosition(newPos);
+                Vector2 newPos = Vector2.MoveTowards(rb.position, target, speed * Time.deltaTime);
+
+                if (Vector2.Distance(player.position, rb.position) < attackRange)
+                {
+                    animator.SetTrigger("Attack");
+                    //Instantiate(effect, rb.position, quaternion.identity);
+                    isAttacking = true;
+                }
+                else
+                {
+                    isAttacking = false;
+                    rb.MovePosition(newPos);
+                }
             }
         }
 

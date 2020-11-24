@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Enemy;
 using Platform;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -25,6 +26,7 @@ namespace Player
         private PlayerDash _playerDashScript;
 
         public GameObject levelLoader;
+        public Dialogue.Dialogue dialogueManager;
         private Transform respawnPos;
 
         public AudioSource audioSource;
@@ -74,6 +76,7 @@ namespace Player
                 if (respawnPos != null)
                 {
                     transform.position = respawnPos.position;
+                    levelLoader.GetComponent<LevelLoader>().disable = true;
                 }
                 else
                 {
@@ -94,8 +97,7 @@ namespace Player
         private void OnCollisionEnter2D(Collision2D other)
         {
             // when player collide with red or blue enemies 
-            if ((other.gameObject.CompareTag("red") || other.gameObject.CompareTag("blue") ||
-                 other.gameObject.CompareTag("Boss")) &&
+            if ((other.gameObject.CompareTag("red") || other.gameObject.CompareTag("blue")) &&
                 !_playerSkillScript.isEating && !_isInvincible && _playerDashScript.direction == 0)
             {
                 _isInvincible = true;
@@ -105,14 +107,15 @@ namespace Player
             }
 
             // when player collide with magma or trap 
-            if (other.gameObject.name == "Magma" || other.gameObject.name == "Trap" && !_isInvincible)
+            if ((other.gameObject.name == "Magma" ||
+                 other.gameObject.name == "Trap") && !_isInvincible && _playerDashScript.direction == 0)
             {
                 _isInvincible = true;
                 health--;
                 audioSource.Play();
                 StartCoroutine(HurtBlinkerForEnvironment(other.gameObject.name));
             }
-            
+
             // when player collide with power up items
             if (other.gameObject.CompareTag("Heart"))
             {
@@ -125,6 +128,15 @@ namespace Player
             if (other.gameObject.CompareTag("CheckPoint"))
             {
                 respawnPos = other.transform;
+            }
+
+            if (other.gameObject.GetComponent<Boss>() && !_playerSkillScript.isEating && !_isInvincible &&
+                _playerDashScript.direction == 0)
+            {
+                _isInvincible = true;
+                health--;
+                audioSource.Play();
+                StartCoroutine(HurtBlinker());
             }
         }
 

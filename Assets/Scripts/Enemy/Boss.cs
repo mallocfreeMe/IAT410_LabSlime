@@ -1,4 +1,5 @@
 ﻿using System;
+using Platform;
 using Player;
 using UnityEngine;
 
@@ -7,8 +8,10 @@ namespace Enemy
     public class Boss : MonoBehaviour
     {
         public Transform player;
-        public bool isFlipped = false;
+        public bool isFlipped;
         private int health = 10;
+
+        public bool stop;
 
         public void LookAtPlayer()
         {
@@ -29,12 +32,12 @@ namespace Enemy
             }
         }
 
-        private void OnCollisionEnter2D(Collision2D other)
+        private void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.collider.gameObject.GetComponent<Bullet>())
+            if (other.gameObject.CompareTag("Ground") || other.gameObject.GetComponent<Gate>() ||
+                other.gameObject.name == "Trap")
             {
-                Debug.Log(health);
-                health--;
+                stop = true;
             }
         }
 

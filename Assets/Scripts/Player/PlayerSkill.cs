@@ -92,6 +92,12 @@ namespace Player
                 {
                     hasEnemyRight.collider.gameObject.GetComponent<Patrol>().enabled = false;
                 }
+                
+                // disable the smart behaviour
+                if (hasEnemyRight.collider.gameObject.GetComponent<Boss>())
+                {
+                    hasEnemyRight.collider.gameObject.GetComponent<Boss>().stop = true;
+                }
 
                 if (hasEnemyRight.collider.gameObject.CompareTag("red"))
                 {

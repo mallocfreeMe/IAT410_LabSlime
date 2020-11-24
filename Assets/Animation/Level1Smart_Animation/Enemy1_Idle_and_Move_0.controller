@@ -55,7 +55,7 @@ AnimatorController:
     m_Controller: {fileID: 9100000}
 --- !u!1102 &3734505945702124016
 AnimatorState:
-  serializedVersion: 5
+  serializedVersion: 6
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -105,7 +105,7 @@ AnimatorStateTransition:
   m_CanTransitionToSelf: 1
 --- !u!1102 &4883591302434544992
 AnimatorState:
-  serializedVersion: 5
+  serializedVersion: 6
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -145,6 +145,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3
   attackRange: 1
+  isAttacking: 0
 --- !u!114 &6854816166716008413
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -159,9 +160,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 8.5
   attackRange: 10
+  isAttacking: 0
 --- !u!1107 &7701182590795803172
 AnimatorStateMachine:
-  serializedVersion: 5
+  serializedVersion: 6
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
