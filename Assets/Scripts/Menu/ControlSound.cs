@@ -12,7 +12,8 @@ public class ControlSound : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        asound.volume = 0.1f;
+        sd.value = 0.1f;
     }
 
     // Update is called once per frame

@@ -832,9 +832,9 @@ public class AstarPath : VersionedMonoBehaviour {
 			if (logPathResults == PathLog.InGame) {
 				inGameDebugPath = debug;
 			} else if (path.error) {
-				Debug.LogWarning(debug);
+				//Debug.LogWarning(debug);
 			} else {
-				Debug.Log(debug);
+				//Debug.Log(debug);
 			}
 		}
 	}
@@ -1375,7 +1375,7 @@ public class AstarPath : VersionedMonoBehaviour {
 		if (!Application.isPlaying) return;
 
 		if (logPathResults == PathLog.Heavy)
-			Debug.Log("+++ AstarPath Component Destroyed - Cleaning Up Pathfinding Data +++");
+			//Debug.Log("+++ AstarPath Component Destroyed - Cleaning Up Pathfinding Data +++");
 
 		if (active != this) return;
 

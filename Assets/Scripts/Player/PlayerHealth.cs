@@ -27,6 +27,9 @@ namespace Player
         public GameObject levelLoader;
         private Transform respawnPos;
 
+        public AudioSource audioSource;
+        public AudioSource audioSource2;
+
         private void Start()
         {
             animator = GetComponent<Animator>();
@@ -72,6 +75,10 @@ namespace Player
                 {
                     transform.position = respawnPos.position;
                 }
+                else
+                {
+                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex, LoadSceneMode.Single);
+                }
 
                 health = numOfHearts;
                 var enemyLayer = LayerMask.NameToLayer("Enemy");
@@ -93,6 +100,7 @@ namespace Player
             {
                 _isInvincible = true;
                 health--;
+                audioSource.Play();
                 StartCoroutine(HurtBlinker());
             }
 
@@ -101,7 +109,14 @@ namespace Player
             {
                 _isInvincible = true;
                 health--;
+                audioSource.Play();
                 StartCoroutine(HurtBlinkerForEnvironment(other.gameObject.name));
+            }
+            
+            // when player collide with power up items
+            if (other.gameObject.CompareTag("Heart"))
+            {
+                audioSource2.Play();
             }
         }
 

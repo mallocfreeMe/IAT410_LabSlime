@@ -42,6 +42,8 @@ namespace Player
         // green color character's skill - shoot bullet
         private PlayerWeapon _playerWeaponScript;
 
+        public AudioSource audioSource;
+
         private void Start()
         {
             allowToUseConsume = true;
@@ -188,6 +190,7 @@ namespace Player
             }
 
             yield return new WaitForSeconds(animationLastSeconds);
+            audioSource.Play();
             Destroy(enemyBeEaten);
         }
 

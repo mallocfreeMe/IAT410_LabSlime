@@ -27,6 +27,8 @@ namespace Player
         private PlayerDash _playerDashScript;
         private PlayerFloat _playerFloatScript;
 
+        public AudioSource audioSource;
+
         // Start is called before the first frame update
         private void Start()
         {
@@ -68,6 +70,7 @@ namespace Player
             if (isGrounded && Input.GetKeyDown(KeyCode.W))
             {
                 dust.Play();
+                audioSource.Play();
                 isJumping = true;
                 jumpTimeCounter = jumpTime;
                 rb.velocity = Vector2.up * jumpForce;
