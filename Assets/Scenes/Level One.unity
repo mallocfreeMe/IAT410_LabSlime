@@ -292,6 +292,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 707244817}
     m_Modifications:
+    - target: {fileID: 436300385, guid: 162af22ca691f4fe1a3afb2d2de5333a, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 7d758a08ce1913f4b8eb135a6c590186, type: 2}
     - target: {fileID: 5351608580219018216, guid: 162af22ca691f4fe1a3afb2d2de5333a, type: 3}
       propertyPath: m_Name
       value: Check Point
@@ -1629,6 +1633,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 707244817}
     m_Modifications:
+    - target: {fileID: 436300385, guid: 162af22ca691f4fe1a3afb2d2de5333a, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 7d758a08ce1913f4b8eb135a6c590186, type: 2}
     - target: {fileID: 5351608580219018216, guid: 162af22ca691f4fe1a3afb2d2de5333a, type: 3}
       propertyPath: m_Name
       value: Check Point (1)
@@ -1913,26 +1921,6 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-  - first: {x: 46, y: -23, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 12
-      m_TileSpriteIndex: 12
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
-  - first: {x: 46, y: -22, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 13
-      m_TileSpriteIndex: 13
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
   - first: {x: -23, y: -15, z: 0}
     second:
       serializedVersion: 2
@@ -2058,16 +2046,6 @@ Tilemap:
       serializedVersion: 2
       m_TileIndex: 2
       m_TileSpriteIndex: 2
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
-  - first: {x: 65, y: -10, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 14
-      m_TileSpriteIndex: 14
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -2369,11 +2347,11 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 1
-    m_Data: {fileID: 11400000, guid: 175b1a4636f3441f6b9c97f591254d81, type: 2}
-  - m_RefCount: 1
-    m_Data: {fileID: 11400000, guid: 72e50a17acdd34d8482b055468571b5f, type: 2}
-  - m_RefCount: 18
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 17
     m_Data: {fileID: 11400000, guid: f5022bfcea6794e60822a882b3ff9bd9, type: 2}
   - m_RefCount: 15
     m_Data: {fileID: 11400000, guid: 6b0da74209cb6114ab96f8cae6ad43b8, type: 2}
@@ -2402,16 +2380,16 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 1
-    m_Data: {fileID: 4790512015156024983, guid: 79c5445ee12464e4d96d2c3b63c41e23, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: -6522388622776862939, guid: 79c5445ee12464e4d96d2c3b63c41e23, type: 3}
-  - m_RefCount: 18
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 17
     m_Data: {fileID: -5303973978550083128, guid: 79c5445ee12464e4d96d2c3b63c41e23, type: 3}
   - m_RefCount: 15
     m_Data: {fileID: 3162417885276798747, guid: 95aec50e6510e6d47a76a8fda3364dc9, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 55
+  - m_RefCount: 52
     m_Data:
       e00: 1
       e01: 0
@@ -2430,7 +2408,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 55
+  - m_RefCount: 52
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
@@ -2954,11 +2932,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3738397175183372229, guid: 894d27449cf294b5eaa4e0e841f0f79f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -35.23
+      value: -35.21
       objectReference: {fileID: 0}
     - target: {fileID: 3738397175183372229, guid: 894d27449cf294b5eaa4e0e841f0f79f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -5.22
+      value: -4.75
       objectReference: {fileID: 0}
     - target: {fileID: 3738397175183372229, guid: 894d27449cf294b5eaa4e0e841f0f79f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3972,6 +3950,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 707244817}
     m_Modifications:
+    - target: {fileID: 436300385, guid: 162af22ca691f4fe1a3afb2d2de5333a, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 7d758a08ce1913f4b8eb135a6c590186, type: 2}
     - target: {fileID: 5351608580219018216, guid: 162af22ca691f4fe1a3afb2d2de5333a, type: 3}
       propertyPath: m_Name
       value: Check Point (2)
