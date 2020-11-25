@@ -9,18 +9,16 @@ namespace Player
         private double _timer = 3.5;
         
         private PlayerSkill _playerSkillScript;
-        private PlayerController _playerController;
 
         private void Start()
         {
             _rb = GetComponent<Rigidbody2D>();
             _playerSkillScript = GetComponent<PlayerSkill>();
-            _playerController = GetComponent<PlayerController>();
         }
         
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Space) && _playerController.isGrounded)
+            if (Input.GetKeyDown(KeyCode.Space))
             {
                 isFloating = true;
             }

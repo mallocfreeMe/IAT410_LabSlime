@@ -96,8 +96,8 @@ namespace Player
 
         private void OnCollisionEnter2D(Collision2D other)
         {
-            // when player collide with red or blue enemies 
-            if ((other.gameObject.CompareTag("red") || other.gameObject.CompareTag("blue")) &&
+            // when player collide with red or blue enemies or green enemies
+            if ((other.gameObject.CompareTag("red") || other.gameObject.CompareTag("blue") || other.gameObject.CompareTag("green")) &&
                 !_playerSkillScript.isEating && !_isInvincible && _playerDashScript.direction == 0)
             {
                 _isInvincible = true;

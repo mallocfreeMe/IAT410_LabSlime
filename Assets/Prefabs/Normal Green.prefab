@@ -115,7 +115,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4129566746519420767}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -141,7 +141,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.002818346, y: 0.15853542}
+  m_Offset: {x: -0.002818346, y: 0.002560094}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -152,7 +152,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.9118867, y: 0.31707084}
+  m_Size: {x: 0.9118867, y: 0.6001023}
   m_EdgeRadius: 0
 --- !u!114 &4129566746519420709
 MonoBehaviour:
@@ -183,7 +183,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07a0dee25442a4e428a6d2ad64f1e81c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  effect: {fileID: 7799466723488888777, guid: d9824f0707ca8457aafc4d91f3ef44be, type: 3}
+  effect: {fileID: 4760176333122841373, guid: 8307607df4ad049a7b440e78e89094f6, type: 3}
   health: 1
 --- !u!1 &4129566747156255330
 GameObject:
