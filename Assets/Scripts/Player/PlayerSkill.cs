@@ -74,7 +74,9 @@ namespace Player
         {
             if (Input.GetKeyDown(KeyCode.S) && allowToUseConsume)
             {
-                if (hasEnemyRight.collider && !hasEnemyRight.collider.gameObject.CompareTag("Boss"))
+                if (hasEnemyRight.collider && (hasEnemyRight.collider.gameObject.CompareTag("red") ||
+                                               hasEnemyRight.collider.gameObject.CompareTag("blue") ||
+                                               hasEnemyRight.collider.gameObject.CompareTag("green")))
                 {
                     enemyBeEaten = hasEnemyRight.collider.gameObject;
                     isEating = true;
@@ -92,7 +94,7 @@ namespace Player
                 {
                     hasEnemyRight.collider.gameObject.GetComponent<Patrol>().enabled = false;
                 }
-                
+
                 // disable the smart behaviour
                 if (hasEnemyRight.collider.gameObject.GetComponent<Boss>())
                 {
@@ -138,7 +140,7 @@ namespace Player
                 {
                     _playerFloatScript.enabled = true;
                 }
-                
+
                 // green 
                 if (sr.sprite.name.Contains("Green"))
                 {
