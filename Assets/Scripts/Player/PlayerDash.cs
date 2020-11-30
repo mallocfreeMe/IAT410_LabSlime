@@ -28,7 +28,7 @@ namespace Player
         {
             if (direction == 0)
             {
-                if (Input.GetKeyDown(KeyCode.Space))
+                if (Input.GetKeyDown(KeyCode.J))
                 {
                     if (_playerController.facingRight)
                     {

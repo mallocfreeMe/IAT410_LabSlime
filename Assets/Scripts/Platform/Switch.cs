@@ -9,9 +9,12 @@ namespace Platform
         private Animator _animator;
         private int _count = 0;
 
+        public AudioSource playSrc;
+
         private void Start()
         {
             _animator = GetComponent<Animator>();
+            playSrc = GetComponent<AudioSource>();
         }
 
         private void OnTriggerEnter2D(Collider2D other)
@@ -23,6 +26,7 @@ namespace Platform
                 {
                     isPicked = true;
                     _animator.SetTrigger("Open");
+                    playSrc.Play();
                 }
             }
         }

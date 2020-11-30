@@ -22,7 +22,7 @@ namespace Player
         void Update()
         {
             // move animations 
-            if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
+            if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow))
             {
                 if (animator.GetBool("IsRed"))
                 {
@@ -62,7 +62,7 @@ namespace Player
             }
 
             // jump animations 
-            if (playerControllerScript.isGrounded && Input.GetKeyDown(KeyCode.W))
+            if (playerControllerScript.isGrounded && (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)))
             {
                 if (animator.GetBool("IsRed"))
                 {
@@ -124,7 +124,7 @@ namespace Player
             // red dash
             if (animator.GetBool("IsRed"))
             {
-                if (Input.GetKeyDown(KeyCode.Space))
+                if (Input.GetKeyDown(KeyCode.J))
                 {
                     animator.SetTrigger("RedDash");
                 }
@@ -146,7 +146,7 @@ namespace Player
             // green shoot projectiles
             if (animator.GetBool("IsGreen"))
             {
-                if (Input.GetKeyDown(KeyCode.Space))
+                if (Input.GetKeyDown(KeyCode.J))
                 {
                     animator.SetTrigger("GreenShoot");
                 }

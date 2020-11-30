@@ -2,6 +2,7 @@
 using System.Collections;
 using Enemy;
 using UnityEngine;
+using Cinemachine;
 
 namespace Player
 {
@@ -11,6 +12,12 @@ namespace Player
         public ParticleSystem dust;
         public Transform groundCheck;
         public LayerMask whatIsGround;
+        //public CinemachineCameraOffset lookdown;
+        public CinemachineCameraOffset m_ApplyAfter;
+        GameObject camObj;
+        CinemachineFreeLook look;
+        CinemachineComposer comp;
+
 
         public float speed = 7;
         public float jumpForce;
@@ -35,6 +42,11 @@ namespace Player
             rb = GetComponent<Rigidbody2D>();
             _playerDashScript = GetComponent<PlayerDash>();
             _playerFloatScript = GetComponent<PlayerFloat>();
+
+            camObj = GameObject.FindWithTag("MainCamera");
+            look = camObj.GetComponent<CinemachineFreeLook>();
+            comp = look.GetRig(1).GetCinemachineComponent<CinemachineComposer>();
+
         }
 
         private void Flip()
@@ -67,7 +79,7 @@ namespace Player
 
         private void Update()
         {
-            if (isGrounded && Input.GetKeyDown(KeyCode.W))
+            if (isGrounded && ( Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)))
             {
                 dust.Play();
                 audioSource.Play();
@@ -76,7 +88,7 @@ namespace Player
                 rb.velocity = Vector2.up * jumpForce;
             }
 
-            if (Input.GetKey(KeyCode.W) && isJumping)
+            if ( (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) && isJumping)
             {
                 if (jumpTimeCounter > 0)
                 {
@@ -89,9 +101,16 @@ namespace Player
                 }
             }
 
-            if (Input.GetKeyUp(KeyCode.W))
+            if ((Input.GetKeyUp(KeyCode.Space) || Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.UpArrow)))
             {
                 isJumping = false;
+            }
+
+            if ((Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)))
+            {
+
+                comp.m_TrackedObjectOffset.y = 5;
+
             }
         }
     }

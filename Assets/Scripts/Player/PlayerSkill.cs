@@ -27,6 +27,7 @@ namespace Player
 
         // Energy bar counter
         public GameObject energyBar;
+        public int rVal, gVal, bVal;
         private EnergyBar energyBarScript;
         public double currentEnergy = 100;
         private int maxEnergy = 100;
@@ -72,7 +73,7 @@ namespace Player
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.S) && allowToUseConsume)
+            if (Input.GetKeyDown(KeyCode.J) && allowToUseConsume)
             {
                 if (hasEnemyRight.collider && (hasEnemyRight.collider.gameObject.CompareTag("red") ||
                                                hasEnemyRight.collider.gameObject.CompareTag("blue") ||
@@ -132,6 +133,9 @@ namespace Player
                 // red 
                 if (sr.sprite.name.Contains("Red"))
                 {
+                    //rVal = 240;
+                   // gVal = 0;
+                    //bVal = 0;
                     _playerDashScript.enabled = true;
                 }
 
@@ -152,7 +156,7 @@ namespace Player
             {
                 if (currentEnergy <= 0)
                 {
-                    energyBar.SetActive(false);
+                    //energyBar.SetActive(false);
                     _playerDashScript.direction = 0;
                     _playerDashScript.enabled = false;
                     _playerFloatScript.enabled = false;
