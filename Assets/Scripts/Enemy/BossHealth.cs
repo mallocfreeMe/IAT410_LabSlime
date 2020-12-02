@@ -9,7 +9,8 @@ namespace Enemy
         private float _width;
         private ParticleEffect _script;
         private float _maxHealth;
-        public Door door;
+
+        public Door doorScript;
 
         private void Start()
         {
@@ -22,10 +23,9 @@ namespace Enemy
         {
             var scale = (1 - (_maxHealth - _script.health) / _maxHealth) * _width;
             transform.localScale = new Vector3(scale, transform.localScale.y,transform.localScale.z);
-
-            if (_script.health == 0)
+            if (_script.health == 1)
             {
-                door.GetComponent<Door>().open = true;
+                doorScript.open = true;
             }
         }
     }
