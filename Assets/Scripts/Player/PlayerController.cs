@@ -15,7 +15,7 @@ namespace Player
 
         public CinemachineCameraOffset Offset;
 
-        private float panVal = 0;
+        //private float panVal = 0;
         public float speed = 7;
         public float jumpForce;
         private float moveInput;
@@ -107,23 +107,14 @@ namespace Player
                 // panVal -= 0.1f;
                 //Invoke("smoothing", 1.0f);
                 Offset.m_Offset = new Vector3(0, -5, 0);
-
-
             }
 
             if ((Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.DownArrow)))
             {
 
                 Offset.m_Offset = new Vector3(0, 0, 0);
-                panVal = 0;
-
-
+                //panVal = 0;
             }
-
-
         }
-
-
-
     }
 }

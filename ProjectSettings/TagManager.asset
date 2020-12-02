@@ -15,6 +15,7 @@ TagManager:
   - CheckPoint
   - green
   - Box
+  - BossSkill
   layers:
   - Default
   - TransparentFX
@@ -31,7 +32,7 @@ TagManager:
   - Enemy
   - Magma
   - Trap
-  - 
+  - Boss
   - 
   - 
   - 

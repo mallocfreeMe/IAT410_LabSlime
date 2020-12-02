@@ -6,13 +6,13 @@ namespace Enemy
 {
     public class BossRun : StateMachineBehaviour
     {
-        public float speed = 8.5f;
-        public float attackRange = 2.5f;
+        private float speed = 8.5f;
+        private float attackRange = 10f;
         private Transform player;
         private Rigidbody2D rb;
         private Boss boss;
 
-        public bool isAttacking;
+        // public bool isAttacking;
 
         // public GameObject effect;
 
@@ -29,8 +29,9 @@ namespace Enemy
         {
             boss.LookAtPlayer();
             Vector2 target = new Vector2(player.position.x, rb.position.y);
+            Debug.DrawRay(rb.transform.position, target, Color.green);
 
-            if (Math.Abs(target.x - rb.position.x) < 6 && Math.Abs(target.y - rb.position.y) < 2 && !boss.stop)
+            /*if (Math.Abs(target.x - rb.position.x) < 20 && Math.Abs(target.y - rb.position.y) < 20 && !boss.stop)
             {
                 Vector2 newPos = Vector2.MoveTowards(rb.position, target, speed * Time.deltaTime);
 
@@ -42,9 +43,20 @@ namespace Enemy
                 }
                 else
                 {
-                    isAttacking = false;
+                    isAttacking  = false;
                     rb.MovePosition(newPos);
                 }
+            }*/
+            
+            Vector2 newPos = Vector2.MoveTowards(rb.position, target, speed * Time.deltaTime);
+            
+            if (Vector2.Distance(player.position, rb.position) < attackRange)
+            {
+                animator.SetTrigger("Attack");
+            }
+            else
+            {
+                rb.MovePosition(newPos);
             }
         }
 

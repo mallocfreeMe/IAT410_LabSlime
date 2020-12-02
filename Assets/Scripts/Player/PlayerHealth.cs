@@ -97,7 +97,8 @@ namespace Player
         private void OnCollisionEnter2D(Collision2D other)
         {
             // when player collide with red or blue enemies or green enemies
-            if ((other.gameObject.CompareTag("red") || other.gameObject.CompareTag("blue") || other.gameObject.CompareTag("green")) &&
+            if ((other.gameObject.CompareTag("red") || other.gameObject.CompareTag("blue") ||
+                 other.gameObject.CompareTag("green")) &&
                 !_playerSkillScript.isEating && !_isInvincible && _playerDashScript.direction == 0)
             {
                 _isInvincible = true;
@@ -130,6 +131,19 @@ namespace Player
                 respawnPos = other.transform;
             }
 
+            if (other.gameObject.GetComponent<BossBullet>() && !_playerSkillScript.isEating &&
+                _playerDashScript.direction == 0)
+            {
+                Destroy(other.gameObject);
+                if (!_isInvincible)
+                {
+                    _isInvincible = true;
+                    health--;
+                    audioSource.Play();
+                    StartCoroutine(HurtBlinker());
+                }
+            }
+
             if (other.gameObject.GetComponent<Boss>() && !_playerSkillScript.isEating && !_isInvincible &&
                 _playerDashScript.direction == 0)
             {
@@ -137,6 +151,21 @@ namespace Player
                 health--;
                 audioSource.Play();
                 StartCoroutine(HurtBlinker());
+            }
+        }
+
+        private void OnParticleCollision(GameObject other)
+        {
+            if (!_playerSkillScript.isEating && _playerDashScript.direction == 0)
+            {
+                Destroy(other);
+                if (!_isInvincible)
+                {
+                    _isInvincible = true;
+                    health--;
+                    audioSource.Play();
+                    StartCoroutine(HurtBlinker());
+                }
             }
         }
 

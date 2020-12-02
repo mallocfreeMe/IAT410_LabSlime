@@ -15,7 +15,7 @@ namespace Platform
             if (_enter)
             {
                 _timerCounter -= Time.deltaTime;
-                Debug.Log(_timerCounter);
+                // Debug.Log(_timerCounter);
                 if (_timerCounter <= 0)
                 {
                     SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
